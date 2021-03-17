@@ -12,3 +12,7 @@
 ### Viikko 2
 
 *To do...*
+
+### Viikko 3
+
+*To do..."
