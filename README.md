@@ -1,9 +1,9 @@
-#Harjoitustyön aihe
+# Ohjelmistotekniikan harjoitustyö
 
-Harjoitustyössäni on *seuraavat* ominaisuudet:
-* Ominaisuus 1
-* Ominaisuus 2
-* Ominaisuus 3
+## Tehtävät
 
-To do:
-- [] Tee harjoitustyö
+### Viikko 1
+
+[gitlog.txt] (https://github.com/ajperttula/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+[komentorivi.txt] (https://github.com/ajperttula/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+
