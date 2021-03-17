@@ -8,3 +8,7 @@
 
 [komentorivi.txt](https://github.com/ajperttula/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
+
+### Viikko 2
+
+*To do...*
