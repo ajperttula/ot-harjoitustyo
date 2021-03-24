@@ -11,7 +11,7 @@
 
 ### Viikko 2
 
-*To do...*
+[testikattavuus](https://github.com/ajperttula/ot-harjoitustyo/blob/master/laskarit/viikko2/testikattavuus.png)
 
 ### Viikko 3
 
