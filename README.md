@@ -16,3 +16,9 @@
 ### Viikko 3
 
 *To do...*
+
+## Dokumentaatio
+
+[Vaatimusmäärittely](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Tuntikirjanpito](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
