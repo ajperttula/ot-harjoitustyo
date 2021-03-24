@@ -8,7 +8,7 @@ Peli on klassinen Tetris, jossa palikoita tippuu pelialueen yläosasta alaspäin
 
 Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelinäkymä, tulosnäkymä sekä asetusnäkymä.
 
-<img src="https://raw.githubusercontent.com/ajperttula/ot-harjoitustyo/master/dokumentaatio/kuvat/käyttöliittymä.jpeg" width="750">
+<img src="https://raw.githubusercontent.com/ajperttula/ot-harjoitustyo/master/dokumentaatio/kuvat/kayttoliittyma.jpeg" width="750">
 
 ## Toiminnot
 
