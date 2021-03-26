@@ -5,8 +5,8 @@ class Clock:
     def __init__(self):
         self.clock = pygame.time.Clock()
 
-    def tick(self):
-        self.clock.tick(60)
+    def tick(self, fps):
+        self.clock.tick(fps)
 
 class Event:
     def get(self):
@@ -49,6 +49,9 @@ class Level:
             return False
         return True
 
+    def lower_block(self):
+        self.block.y += self.cell_size
+
 def main():
     pygame.init()
 
@@ -57,10 +60,17 @@ def main():
     clock = Clock()
     level = Level()
     event_queue = Event()
+    counter = 0
+    fps = 60
 
     pygame.display.set_caption("TETRIS")
 
     while True:
+        counter += 1
+
+        if counter%fps == 0:
+            level.lower_block()
+
         for event in event_queue.get():
             if event.type == pygame.QUIT:
                 exit()
@@ -71,7 +81,7 @@ def main():
                     level.move_block(1)
 
         Render(display, level)
-        clock.tick()
+        clock.tick(fps)
 
 if __name__ == "__main__":
     main()
