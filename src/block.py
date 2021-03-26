@@ -38,14 +38,18 @@ class Block:
                 new[y].append(self.__shape[x][y])
         self.__shape = new
 
+    @property
     def shape(self):
         return self.__shape
 
+    @property
     def color(self):
         return self.__color
 
+    @property
     def height(self):
         return len(self.__shape)
 
+    @property
     def width(self):
         return len(self.__shape[0])
