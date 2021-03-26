@@ -39,8 +39,15 @@ class Level:
         self.cell_size = 25
         self.block = Block(120,20)
 
-    def move_block(self, dx: int):
-        self.block.x += dx * self.cell_size
+    def move_block(self, delta_x: int):
+        new_x = self.block.x + delta_x * self.cell_size
+        if self.__block_can_move(new_x):
+            self.block.x = new_x
+
+    def __block_can_move(self, new_x):
+        if new_x < 20 or new_x > 20+(10-self.block.width)*self.cell_size:
+            return False
+        return True
 
 def main():
     pygame.init()
