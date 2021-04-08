@@ -7,4 +7,5 @@
 | 25.3. | 2    | pelin rakenteen ideointia | 
 | 26.3. | 6    | pelikentän piirto, palikan liike, refaktorointia |
 |  7.4. | 2    | testien ja taskien tekoa, pelin testausta virtuaalityöpöydällä |
-|   yht | 12   | | 
+|  8.4. | 7    | pelilogiikan rakentamista, palikan liikerajoitukset, törmäykset |
+|   yht | 19   | | 
