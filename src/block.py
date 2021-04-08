@@ -29,12 +29,22 @@ class Block:
         self.__shape = self.SHAPES[randint(0,len(self.SHAPES)-1)]
         self.__color = self.COLORS[randint(0,len(self.COLORS)-1)]
 
-    def rotate(self):
+    def rotate_clockwise(self):
         new = []
         for y in range(len(self.__shape[0])):
             new.append([])
             for x in range(len(self.__shape)-1,-1,-1):
                 new[y].append(self.__shape[x][y])
+        self.__shape = new
+
+    def rotate_anticlockwise(self):
+        new = []
+        i = -1
+        for y in range(-1,-len(self.__shape[0])-1,-1):
+            i += 1
+            new.append([])
+            for x in range(len(self.__shape)):
+                new[i].append(self.__shape[x][y])
         self.__shape = new
 
     @property
