@@ -14,5 +14,9 @@ class Level:
             return False
         return True
 
+    def rotate_block(self):
+        if self.block.x <= 20+(10-self.block.height)*self.cell_size:
+            self.block.rotate()
+
     def lower_block(self):
         self.block.y += self.cell_size

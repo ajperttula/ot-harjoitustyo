@@ -34,7 +34,7 @@ def main():
                 if event.key == pygame.K_RIGHT:
                     level.move_block(1)
                 if event.key == pygame.K_UP:
-                    level.block.rotate()
+                    level.rotate_block()
 
         Render(display, level)
         clock.tick(fps)
