@@ -11,8 +11,7 @@ def main():
     display = pygame.display.set_mode((400, 550))
 
     clock = Clock()
-    block = Block(120,20)
-    level = Level(block)
+    level = Level()
     event_queue = Event()
     counter = 0
     fps = 60
@@ -20,7 +19,11 @@ def main():
     pygame.display.set_caption("TETRIS")
 
     while True:
-        counter += 1
+        if level.collision or level.block == None:
+            block = Block(120,20)
+            level.new_block(block)
+        
+        counter += 5
 
         if counter%fps == 0:
             level.lower_block()
