@@ -23,7 +23,7 @@ def main():
             block = Block(120,20)
             level.new_block(block)
         
-        counter += 5
+        counter += 2
 
         if counter%fps == 0:
             level.lower_block()

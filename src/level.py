@@ -4,24 +4,31 @@ class Level:
         self.cell_size = 25
         self.block = None
         self.collision = False
-        self.block_grid_y = 0
-        self.block_grid_x = 4
+        self.__reset_block_position()
 
     def move_block(self, delta_x: int):
-        new_x = self.block.x + delta_x * self.cell_size
-        if self.__block_can_move(new_x):
-            self.block.x = new_x
-            self.block_grid_x += delta_x
-
-    def __block_can_move(self, new_x):
-        if new_x < 20 or new_x > 20+(10-self.block.width)*self.cell_size:
-            return False
-        return True
+        for y in range(self.block.height):
+            for x in range(self.block.width):
+                if (self.block.shape[y][x] == 1 and
+                    (self.block_grid_x + delta_x < 0 or
+                    self.block_grid_x + self.block.width + delta_x > 10 or
+                    self.grid[self.block_grid_y+y][self.block_grid_x+x+delta_x] != 0)):
+                    return
+        
+        self.block_grid_x += delta_x
+        self.block.x += delta_x * self.cell_size
 
     def rotate_block(self):
-        if (self.block.x <= 20+(10-self.block.height)*self.cell_size and 
-           self.block.y <= 20+(20-self.block.width)*self.cell_size):
-            self.block.rotate()
+        self.block.rotate_clockwise()
+        for y in range(self.block.height):
+            for x in range(self.block.width):
+                if (self.block.shape[y][x] == 1 and
+                    (self.block_grid_x < 0 or
+                    self.block_grid_x + self.block.width > 10 or
+                    self.block_grid_y + self.block.height > 20 or
+                    self.grid[self.block_grid_y+y][self.block_grid_x+x] != 0)):
+                    self.block.rotate_anticlockwise()
+                    return
 
     def lower_block(self):
         new_y = self.block.y + self.cell_size
@@ -37,6 +44,9 @@ class Level:
             for x in range(self.block.width):
                 if self.block.shape[y][x] == 1:
                     self.grid[self.block_grid_y+y][self.block_grid_x+x] = self.block.color
+        self.__reset_block_position()
+
+    def __reset_block_position(self):
         self.block_grid_x = 4
         self.block_grid_y = 0
 
