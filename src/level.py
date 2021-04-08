@@ -31,13 +31,17 @@ class Level:
                     return
 
     def lower_block(self):
-        new_y = self.block.y + self.cell_size
-        if new_y <= 20+(20-self.block.height)*self.cell_size:
-            self.block.y = new_y
-            self.block_grid_y += 1
-        else:
-            self.collision = True
-            self.update_grid()
+        for y in range(self.block.height):
+            for x in range(self.block.width):
+                if (self.block.shape[y][x] == 1 and
+                    (self.block_grid_y + self.block.height + 1 > 20 or
+                    self.grid[self.block_grid_y+y+1][self.block_grid_x+x] != 0)):
+                    self.collision = True
+                    self.update_grid()
+                    return
+        
+        self.block_grid_y += 1
+        self.block.y += self.cell_size 
 
     def update_grid(self):
         for y in range(self.block.height):
