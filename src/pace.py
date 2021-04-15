@@ -11,8 +11,8 @@ class Pace:
         else:
             self.__counter += self.__difficulty
 
-    def check_counter(self, fps):
-        if self.__counter // fps > self.__integer:
+    def check_counter(self):
+        if self.__counter // 60 > self.__integer:
             self.__integer += 1
             return True
         return False

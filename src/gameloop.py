@@ -1,7 +1,5 @@
 import pygame
 
-FPS = 60
-
 class GameLoop:
     def __init__(self, level, clock, event_queue, renderer, pace):
         self.__level = level
@@ -16,7 +14,7 @@ class GameLoop:
             self.__check_counter()
             self.__check_events()
             self.__renderer.draw()
-            self.__clock.tick(FPS)
+            self.__clock.tick(60)
 
     def __check_events(self):
         for event in self.__event_queue.get():
@@ -38,5 +36,5 @@ class GameLoop:
                     self.__pace.decrease_speed()
     
     def __check_counter(self):
-        if self.__pace.check_counter(FPS):
+        if self.__pace.check_counter():
             self.__level.lower_block()

@@ -7,17 +7,22 @@ from clock import Clock
 from pace import Pace
 from gameloop import GameLoop
 
+CELL_SIZE = 25
+CORNER = 20
+WIDTH = 400
+HEIGHT = 550
+
 def main():
     pygame.init()
 
-    display = pygame.display.set_mode((400, 550))
+    display = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("TETRIS")
 
     block = Block()
     level = Level(block)
     clock = Clock()
     event_queue = Event()
-    renderer = Render(display, block, level)
+    renderer = Render(display, block, level, CELL_SIZE, CORNER)
     pace = Pace()
     gameloop = GameLoop(level, clock, event_queue, renderer, pace)
 
