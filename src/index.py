@@ -17,7 +17,7 @@ def main():
     level = Level(block)
     clock = Clock()
     event_queue = Event()
-    renderer = Render(display, level)
+    renderer = Render(display, block, level)
     pace = Pace()
     gameloop = GameLoop(level, clock, event_queue, renderer, pace)
 

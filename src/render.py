@@ -1,8 +1,9 @@
 import pygame
 
 class Render:
-    def __init__(self, display, level):
+    def __init__(self, display, block, level):
         self.__display = display
+        self.__block = block
         self.__level = level
 
     def draw(self):
@@ -12,13 +13,13 @@ class Render:
         self.__init_changes()
 
     def __draw_block(self):
-        for i in range(self.__level.block.height):
-            for j in range(self.__level.block.width):
-                if self.__level.block.shape[i][j] == 1:
+        for i in range(self.__block.height):
+            for j in range(self.__block.width):
+                if self.__block.shape[i][j] == 1:
                     pygame.draw.rect(
                         self.__display,
-                        self.__level.block.color,
-                        pygame.Rect(self.__level.block.x+j*25, self.__level.block.y+i*25, 25, 25)
+                        self.__block.color,
+                        pygame.Rect(self.__block.x+j*25, self.__block.y+i*25, 25, 25)
                     )
 
     def __draw_grid(self):
