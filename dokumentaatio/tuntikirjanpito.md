@@ -8,4 +8,5 @@
 | 26.3. | 6    | pelikentän piirto, palikan liike, refaktorointia |
 |  7.4. | 2    | testien ja taskien tekoa, pelin testausta virtuaalityöpöydällä |
 |  8.4. | 7    | pelilogiikan rakentamista, palikan liikerajoitukset, törmäykset |
-|   yht | 19   | | 
+| 15.4. | 5    | palikan nopea liikuttaminen, palikan pudotus, refaktorointia |
+|   yht | 24   | | 
