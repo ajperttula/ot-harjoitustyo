@@ -38,3 +38,4 @@ class GameLoop:
     def __check_counter(self):
         if self.__pace.check_counter():
             self.__level.lower_block()
+        self.__level.check_for_full_rows()

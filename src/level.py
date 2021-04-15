@@ -47,6 +47,12 @@ class Level:
             for x in range(self.__block.width):
                 if self.__block.shape[y][x] == 1:
                     self.__grid[self.__block.y+y][self.__block.x+x] = self.__block.color
+                
+    def check_for_full_rows(self):
+        for row in range(20):
+            if self.__grid[row].count(0) == 0:
+                self.__grid.pop(row)
+                self.__grid.insert(0, [0 for x in range(10)])
 
     def __reset_block_position(self):
         self.__block.reset_position()
