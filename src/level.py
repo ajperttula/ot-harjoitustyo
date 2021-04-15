@@ -37,10 +37,15 @@ class Level:
                     self.grid[self.block_grid_y+y+1][self.block_grid_x+x] != 0)):
                     self.__update_grid()
                     self.__reset_block_position()
-                    return
+                    return False
         
         self.block_grid_y += 1
-        self.block.y += self.cell_size 
+        self.block.y += self.cell_size
+        return True
+
+    def drop_block(self):
+        while self.lower_block():
+            continue
 
     def __update_grid(self):
         for y in range(self.block.height):

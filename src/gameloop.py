@@ -31,6 +31,8 @@ class GameLoop:
                     self.__level.rotate_block()
                 if event.key == pygame.K_DOWN:
                     self.__pace.increase_speed()
+                if event.key == pygame.K_SPACE:
+                    self.__level.drop_block()
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_DOWN:
                     self.__pace.decrease_speed()
