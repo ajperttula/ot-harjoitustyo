@@ -4,43 +4,22 @@ from level import Level
 from event import Event
 from render import Render
 from clock import Clock
+from gameloop import GameLoop
 
 def main():
     pygame.init()
 
     display = pygame.display.set_mode((400, 550))
-
-    clock = Clock()
-    level = Level()
-    event_queue = Event()
-    counter = 0
-    fps = 60
-
     pygame.display.set_caption("TETRIS")
 
-    while True:
-        if level.collision or level.block == None:
-            block = Block(120,20)
-            level.new_block(block)
-        
-        counter += 2
+    block = Block()
+    level = Level(block)
+    clock = Clock()
+    event_queue = Event()
+    renderer = Render(display, level)
+    gameloop = GameLoop(level, clock, event_queue, renderer)
 
-        if counter%fps == 0:
-            level.lower_block()
-
-        for event in event_queue.get():
-            if event.type == pygame.QUIT:
-                exit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    level.move_block(-1)
-                if event.key == pygame.K_RIGHT:
-                    level.move_block(1)
-                if event.key == pygame.K_UP:
-                    level.rotate_block()
-
-        Render(display, level)
-        clock.tick(fps)
+    gameloop.start()
 
 if __name__ == "__main__":
     main()

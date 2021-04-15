@@ -23,10 +23,16 @@ class Block:
 
     COLORS = [(255,0,0), (0,255,0), (0,0,255)]
 
-    def __init__(self, x, y):
+    def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
+        self.new_shape()
+        self.new_color()
+
+    def new_shape(self):
         self.__shape = self.SHAPES[randint(0,len(self.SHAPES)-1)]
+
+    def new_color(self):
         self.__color = self.COLORS[randint(0,len(self.COLORS)-1)]
 
     def rotate_clockwise(self):

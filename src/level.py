@@ -1,9 +1,8 @@
 class Level:
-    def __init__(self):
+    def __init__(self, block):
         self.grid = [[0 for j in range(10)] for i in range(20)]
         self.cell_size = 25
-        self.block = None
-        self.collision = False
+        self.block = block
         self.__reset_block_position()
 
     def move_block(self, delta_x: int):
@@ -36,24 +35,23 @@ class Level:
                 if (self.block.shape[y][x] == 1 and
                     (self.block_grid_y + self.block.height + 1 > 20 or
                     self.grid[self.block_grid_y+y+1][self.block_grid_x+x] != 0)):
-                    self.collision = True
-                    self.update_grid()
+                    self.__update_grid()
+                    self.__reset_block_position()
                     return
         
         self.block_grid_y += 1
         self.block.y += self.cell_size 
 
-    def update_grid(self):
+    def __update_grid(self):
         for y in range(self.block.height):
             for x in range(self.block.width):
                 if self.block.shape[y][x] == 1:
                     self.grid[self.block_grid_y+y][self.block_grid_x+x] = self.block.color
-        self.__reset_block_position()
 
     def __reset_block_position(self):
         self.block_grid_x = 4
         self.block_grid_y = 0
-
-    def new_block(self, block):
-        self.block = block
-        self.collision = False
+        self.block.x = 120
+        self.block.y = 20
+        self.block.new_shape()
+        self.block.new_color()
