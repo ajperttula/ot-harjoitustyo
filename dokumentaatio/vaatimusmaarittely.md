@@ -13,27 +13,32 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
 ## Toiminnot
 
 ### Päävalikossa
-* Pelaaja voi siirtyä pelinäkymään
-* Pelaaja voi siirtyä tulosnäkymään
-* Pelaaja voi siirtyä asetusvalikkoon
-* Pelaaja voi sulkea ohjelman
+- [ ] Pelaaja voi siirtyä pelinäkymään
+- [ ] Pelaaja voi siirtyä tulosnäkymään
+- [ ] Pelaaja voi siirtyä asetusvalikkoon
+- [ ] Pelaaja voi sulkea ohjelman
 
 ### Pelinäkymässä
-* Pelaaja voi aloittaa uuden pelin
+- [ ] Pelaaja voi aloittaa uuden pelin
+- [ ] Pelaaja voi siirtyä takaisin päävalikkoon
+- [ ] Peli loppuu, kun uudella palikalla ei ole enää tilaa pudota alaspäin
+- [ ] Jos pisteet yltävät top-10 listaan, Pelaaja voi antaa nimensä listattavaksi
   #### Pelin ollessa käynnissä
-  * Pelaaja voi kääntää putoavaa palikkaa
-  * Pelaaja voi siirtää putoavaa palikkaa pelikentän laidalta toiselle
-  * Pelaaja voi pudottaa palikan nopeasti
-  * Peli näyttää seuraavana vuorossa olevan palikan
-* Pelaaja voi siirtyä takaisin päävalikkoon
+  - [x] Pelaaja voi kääntää putoavaa palikkaa
+  - [x] Pelaaja voi siirtää putoavaa palikkaa pelikentän laidalta toiselle
+  - [x] Pelaaja voi nopeuttaa palikan putoamista
+  - [x] Pelaaja voi pudottaa palikan alas
+  - [ ] Peli näyttää seuraavana vuorossa olevan palikan
+  - [ ] Rivin tullessa täyteen rivi katoaa ja pisteet lisääntyy
+  - [ ] 10 pisteen välein pelin tempo kasvaa
 
 ### Tulosnäkymässä
-* Pelaaja voi tarkastella huipputuloksia
-* Pelaaja voi palata takaisin päävalikkoon
+- [ ] Pelaaja voi tarkastella huipputuloksia
+- [ ] Pelaaja voi palata takaisin päävalikkoon
 
 ### Asetusnäkymässä
-* Pelaaja voi vaihtaa palikoiden väriteemaa
-* Pelaaja voi palata päävalikkoon
+- [ ] Pelaaja voi vaihtaa palikoiden väriteemaa
+- [ ] Pelaaja voi palata päävalikkoon
 
 ## Kehitysideoita
 * Peliin lisätään taustamusiikki ja efektiäänet
