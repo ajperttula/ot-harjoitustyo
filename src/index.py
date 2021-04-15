@@ -4,6 +4,7 @@ from level import Level
 from event import Event
 from render import Render
 from clock import Clock
+from pace import Pace
 from gameloop import GameLoop
 
 def main():
@@ -17,7 +18,8 @@ def main():
     clock = Clock()
     event_queue = Event()
     renderer = Render(display, level)
-    gameloop = GameLoop(level, clock, event_queue, renderer)
+    pace = Pace()
+    gameloop = GameLoop(level, clock, event_queue, renderer, pace)
 
     gameloop.start()
 

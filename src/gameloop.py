@@ -3,18 +3,19 @@ import pygame
 FPS = 60
 
 class GameLoop:
-    def __init__(self, level, clock, event_queue, renderer):
-        self.__counter = 0
+    def __init__(self, level, clock, event_queue, renderer, pace):
         self.__level = level
         self.__clock = clock
         self.__event_queue = event_queue
         self.__renderer = renderer
+        self.__pace = pace
 
     def start(self):
         while True:
-            self.__increase_counter()
+            self.__pace.increase_counter()
+            self.__check_counter()
             self.__check_events()
-            self.__render()
+            self.__renderer.draw()
             self.__clock.tick(FPS)
 
     def __check_events(self):
@@ -28,11 +29,12 @@ class GameLoop:
                     self.__level.move_block(1)
                 if event.key == pygame.K_UP:
                     self.__level.rotate_block()
-
-    def __render(self):
-        self.__renderer.draw()
-
-    def __increase_counter(self):
-        self.__counter += 2
-        if self.__counter%FPS == 0:
+                if event.key == pygame.K_DOWN:
+                    self.__pace.increase_speed()
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_DOWN:
+                    self.__pace.decrease_speed()
+    
+    def __check_counter(self):
+        if self.__pace.check_counter(FPS):
             self.__level.lower_block()
