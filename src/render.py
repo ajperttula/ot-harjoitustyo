@@ -15,31 +15,31 @@ class Render:
         self.__init_changes()
 
     def __draw_block(self):
-        for i in range(self.__block.height):
-            for j in range(self.__block.width):
-                if self.__block.shape[i][j] == 1:
+        for y in range(self.__block.height):
+            for x in range(self.__block.width):
+                if self.__block.shape[y][x] == 1:
                     pygame.draw.rect(
                         self.__display,
                         self.__block.color,
                         pygame.Rect(
-                            self.__corner+(self.__block.x+j)*self.__cell_size,
-                            self.__corner+(self.__block.y+i)*self.__cell_size,
+                            self.__corner+(self.__block.x+x)*self.__cell_size,
+                            self.__corner+(self.__block.y+y)*self.__cell_size,
                             self.__cell_size,
                             self.__cell_size
                         )
                     )
 
     def __draw_grid(self):
-        for i in range(20):
-            for j in range(10):
-                if self.__level.grid[i][j] != 0:
-                    color = self.__level.grid[i][j]
+        for y in range(20):
+            for x in range(10):
+                if self.__level.grid[y][x] != 0:
+                    color = self.__level.grid[y][x]
                     pygame.draw.rect(
                         self.__display,
                         color,
                         pygame.Rect(
-                            self.__corner+j*self.__cell_size,
-                            self.__corner+i*self.__cell_size,
+                            self.__corner+x*self.__cell_size,
+                            self.__corner+y*self.__cell_size,
                             self.__cell_size,
                             self.__cell_size
                         )
@@ -48,8 +48,8 @@ class Render:
                     self.__display,
                     (120,120,120),
                     pygame.Rect(
-                        self.__corner+j*self.__cell_size,
-                        self.__corner+i*self.__cell_size,
+                        self.__corner+x*self.__cell_size,
+                        self.__corner+y*self.__cell_size,
                         self.__cell_size,
                         self.__cell_size
                     ),

@@ -33,10 +33,10 @@ class Block:
         self.__new_color()
 
     def __new_shape(self):
-        self.__shape = self.SHAPES[randint(0,len(self.SHAPES)-1)]
+        self.__shape = Block.SHAPES[randint(0,len(Block.SHAPES)-1)]
 
     def __new_color(self):
-        self.__color = self.COLORS[randint(0,len(self.COLORS)-1)]
+        self.__color = Block.COLORS[randint(0,len(Block.COLORS)-1)]
 
     def rotate_clockwise(self):
         new = []
