@@ -23,6 +23,10 @@ poetry run invoke start
 ```bash
 poetry run invoke start
 ```
+#### Pylint testaus
+```bash
+poetry run invoke lint
+```
 #### Testien suoritus
 ```bash
 poetry run invoke test
