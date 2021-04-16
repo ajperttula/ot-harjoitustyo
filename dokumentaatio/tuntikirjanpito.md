@@ -9,4 +9,5 @@
 |  7.4. | 2    | testien ja taskien tekoa, pelin testausta virtuaalityöpöydällä |
 |  8.4. | 7    | pelilogiikan rakentamista, palikan liikerajoitukset, törmäykset |
 | 15.4. | 7    | palikan nopea liikuttaminen, palikan pudotus, täyden rivin tyhjennys, refaktorointia |
-|   yht | 26   | | 
+| 16.4. | 5    | pylint käyttöön, lisää testejä, refaktorointia |
+|   yht | 31   | | 
