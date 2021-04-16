@@ -3,10 +3,10 @@ class Pace:
         self.__counter = 0
         self.__integer = 0
         self.__difficulty = 2
-        self.__fast = False
+        self.__go_fast = False
 
     def increase_counter(self):
-        if self.__fast:
+        if self.__go_fast:
             self.__counter += self.__difficulty * 4
         else:
             self.__counter += self.__difficulty
@@ -18,7 +18,7 @@ class Pace:
         return False
 
     def increase_speed(self):
-        self.__fast = True
+        self.__go_fast = True
 
     def decrease_speed(self):
-        self.__fast = False
+        self.__go_fast = False

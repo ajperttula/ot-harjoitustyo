@@ -1,15 +1,16 @@
 import unittest
 from block import Block
 
+
 class TestBlock(unittest.TestCase):
     def setUp(self):
         self.block = Block()
 
     def test_constructor_sets_right_x_value(self):
-        self.assertEqual(self.block.x, 4)
+        self.assertEqual(self.block.x_value, 4)
 
     def test_constructor_sets_right_y_value(self):
-        self.assertEqual(self.block.y, 0)
+        self.assertEqual(self.block.y_value, 0)
 
     def test_constructor_sets_one_of_the_shapes_defined_in_class_variable(self):
         self.assertIn(self.block.shape, Block.SHAPES)
