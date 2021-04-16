@@ -14,7 +14,8 @@ class Level:
         if (self.__block.shape[y_value][x_value] == 1 and
             (self.__block.x_value + delta_x < 0 or
             self.__block.x_value + self.__block.width + delta_x > 10 or
-            self.grid[self.__block.y_value+y_value][self.__block.x_value+x_value+delta_x] != 0)):
+                self.grid[self.__block.y_value +
+                          y_value][self.__block.x_value+x_value+delta_x] != 0)):
             return True
         return False
 
@@ -31,7 +32,7 @@ class Level:
             (self.__block.x_value < 0 or
             self.__block.x_value + self.__block.width > 10 or
             self.__block.y_value + self.__block.height > 20 or
-            self.grid[self.__block.y_value+y_value][self.__block.x_value+x_value] != 0)):
+                self.grid[self.__block.y_value+y_value][self.__block.x_value+x_value] != 0)):
             return True
         return False
 
@@ -49,7 +50,7 @@ class Level:
     def __block_collides(self, y_value, x_value):
         if (self.__block.shape[y_value][x_value] == 1 and
             (self.__block.y_value + self.__block.height + 1 > 20 or
-            self.grid[self.__block.y_value+y_value+1][self.__block.x_value+x_value] != 0)):
+                self.grid[self.__block.y_value+y_value+1][self.__block.x_value+x_value] != 0)):
             return True
         return False
 
@@ -64,7 +65,8 @@ class Level:
                     self.__color_grid(y_value, x_value)
 
     def __color_grid(self, y_value, x_value):
-        self.grid[self.__block.y_value+y_value][self.__block.x_value+x_value] = self.__block.color
+        self.grid[self.__block.y_value +
+                  y_value][self.__block.x_value+x_value] = self.__block.color
 
     def __check_for_full_rows(self):
         for row in range(20):

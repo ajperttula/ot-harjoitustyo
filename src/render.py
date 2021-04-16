@@ -1,5 +1,6 @@
 import pygame
 
+
 class Render:
     def __init__(self, display, block, level, cell_size, corner):
         self.__display = display
@@ -15,7 +16,7 @@ class Render:
         self.__init_changes()
 
     def __draw_background(self):
-        self.__display.fill((255,255,255))
+        self.__display.fill((255, 255, 255))
 
     def __draw_block(self):
         for row in range(self.__block.height):
@@ -25,8 +26,10 @@ class Render:
                         self.__display,
                         self.__block.color,
                         pygame.Rect(
-                            self.__corner+(self.__block.x_value+col)*self.__cell_size,
-                            self.__corner+(self.__block.y_value+row)*self.__cell_size,
+                            self.__corner+(self.__block.x_value +
+                                           col)*self.__cell_size,
+                            self.__corner+(self.__block.y_value +
+                                           row)*self.__cell_size,
                             self.__cell_size,
                             self.__cell_size
                         )
@@ -49,7 +52,7 @@ class Render:
                     )
                 pygame.draw.rect(
                     self.__display,
-                    (120,120,120),
+                    (120, 120, 120),
                     pygame.Rect(
                         self.__corner+col*self.__cell_size,
                         self.__corner+row*self.__cell_size,

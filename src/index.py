@@ -12,6 +12,7 @@ CORNER = 20
 WIDTH = 400
 HEIGHT = 550
 
+
 def main():
     pygame.init()
 
@@ -27,6 +28,7 @@ def main():
     gameloop = GameLoop(level, clock, event_queue, renderer, pace)
 
     gameloop.start()
+
 
 if __name__ == "__main__":
     main()

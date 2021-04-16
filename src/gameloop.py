@@ -1,5 +1,6 @@
 import pygame
 
+
 class GameLoop:
     def __init__(self, level, clock, event_queue, renderer, pace):
         self.__level = level
