@@ -10,11 +10,15 @@ class GameLoop:
 
     def start(self):
         while True:
-            self.__pace.increase_counter()
             self.__check_counter()
             self.__check_events()
-            self.__renderer.draw()
+            self.__render()
             self.__clock.tick(60)
+
+    def __check_counter(self):
+        self.__pace.increase_counter()
+        if self.__pace.check_counter():
+            self.__level.lower_block()
 
     def __check_events(self):
         for event in self.__event_queue.get():
@@ -34,8 +38,6 @@ class GameLoop:
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_DOWN:
                     self.__pace.decrease_speed()
-    
-    def __check_counter(self):
-        if self.__pace.check_counter():
-            self.__level.lower_block()
-        self.__level.check_for_full_rows()
+
+    def __render(self):
+        self.__renderer.draw()

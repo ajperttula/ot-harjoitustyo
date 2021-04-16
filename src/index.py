@@ -1,9 +1,9 @@
 import pygame
 from block import Block
 from level import Level
+from clock import Clock
 from event import Event
 from render import Render
-from clock import Clock
 from pace import Pace
 from gameloop import GameLoop
 

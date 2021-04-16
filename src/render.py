@@ -9,10 +9,13 @@ class Render:
         self.__corner = corner
 
     def draw(self):
-        self.__display.fill((255,255,255))
+        self.__draw_background()
         self.__draw_block()
         self.__draw_grid()
         self.__init_changes()
+
+    def __draw_background(self):
+        self.__display.fill((255,255,255))
 
     def __draw_block(self):
         for y in range(self.__block.height):

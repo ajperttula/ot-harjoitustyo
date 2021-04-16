@@ -32,6 +32,7 @@ class Level:
                     (self.__block.y + self.__block.height + 1 > 20 or
                     self.__grid[self.__block.y+y+1][self.__block.x+x] != 0)):
                     self.__update_grid()
+                    self.__check_for_full_rows()
                     self.__reset_block_position()
                     return False
         
@@ -48,7 +49,7 @@ class Level:
                 if self.__block.shape[y][x] == 1:
                     self.__grid[self.__block.y+y][self.__block.x+x] = self.__block.color
                 
-    def check_for_full_rows(self):
+    def __check_for_full_rows(self):
         for row in range(20):
             if self.__grid[row].count(0) == 0:
                 self.__grid.pop(row)
