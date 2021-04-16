@@ -18,31 +18,31 @@ class Render:
         self.__display.fill((255,255,255))
 
     def __draw_block(self):
-        for y in range(self.__block.height):
-            for x in range(self.__block.width):
-                if self.__block.shape[y][x] == 1:
+        for row in range(self.__block.height):
+            for col in range(self.__block.width):
+                if self.__block.shape[row][col] == 1:
                     pygame.draw.rect(
                         self.__display,
                         self.__block.color,
                         pygame.Rect(
-                            self.__corner+(self.__block.x+x)*self.__cell_size,
-                            self.__corner+(self.__block.y+y)*self.__cell_size,
+                            self.__corner+(self.__block.x_value+col)*self.__cell_size,
+                            self.__corner+(self.__block.y_value+row)*self.__cell_size,
                             self.__cell_size,
                             self.__cell_size
                         )
                     )
 
     def __draw_grid(self):
-        for y in range(20):
-            for x in range(10):
-                if self.__level.grid[y][x] != 0:
-                    color = self.__level.grid[y][x]
+        for row in range(20):
+            for col in range(10):
+                if self.__level.grid[row][col] != 0:
+                    color = self.__level.grid[row][col]
                     pygame.draw.rect(
                         self.__display,
                         color,
                         pygame.Rect(
-                            self.__corner+x*self.__cell_size,
-                            self.__corner+y*self.__cell_size,
+                            self.__corner+col*self.__cell_size,
+                            self.__corner+row*self.__cell_size,
                             self.__cell_size,
                             self.__cell_size
                         )
@@ -51,13 +51,13 @@ class Render:
                     self.__display,
                     (120,120,120),
                     pygame.Rect(
-                        self.__corner+x*self.__cell_size,
-                        self.__corner+y*self.__cell_size,
+                        self.__corner+col*self.__cell_size,
+                        self.__corner+row*self.__cell_size,
                         self.__cell_size,
                         self.__cell_size
                     ),
                     1
                 )
-            
+
     def __init_changes(self):
         pygame.display.flip()

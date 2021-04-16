@@ -2,22 +2,22 @@ from random import randint
 
 class Block:
     SHAPES = [[[1,1,1,1]],
-    
+
               [[1,1,1],
                [0,1,0]],
-               
+
               [[1,0,0],
                [1,1,1]],
-               
+
               [[0,0,1],
                [1,1,1]],
-               
+
               [[1,1,0],
                [0,1,1]],
-               
+
               [[0,1,1],
                [1,1,0]],
-               
+
               [[1,1],
                [1,1]]]
 
@@ -27,54 +27,58 @@ class Block:
         self.reset_position()
 
     def reset_position(self):
-        self.__x = 4
-        self.__y = 0
-        self.__new_shape()
-        self.__new_color()
+        self.__y_value = 0
+        self.__x_value = 4
+        self.__shape = self.__new_shape()
+        self.__color = self.__new_color()
 
     def __new_shape(self):
-        self.__shape = Block.SHAPES[randint(0,len(Block.SHAPES)-1)]
+        return Block.SHAPES[randint(0,len(Block.SHAPES)-1)]
 
     def __new_color(self):
-        self.__color = Block.COLORS[randint(0,len(Block.COLORS)-1)]
+        return Block.COLORS[randint(0,len(Block.COLORS)-1)]
 
     def rotate_clockwise(self):
-        new = []
-        for y in range(len(self.__shape[0])):
-            new.append([])
-            for x in range(len(self.__shape)-1,-1,-1):
-                new[y].append(self.__shape[x][y])
-        self.__shape = new
+        new_shape = []
+        for y_value in range(self.width):
+            new_shape.append([])
+            for x_value in range(self.height-1,-1,-1):
+                new_shape[y_value].append(self.shape[x_value][y_value])
+        self.shape = new_shape
 
     def rotate_anticlockwise(self):
-        new = []
+        new_shape = []
         i = -1
-        for y in range(-1,-len(self.__shape[0])-1,-1):
+        for y_value in range(-1,-self.width-1,-1):
             i += 1
-            new.append([])
-            for x in range(len(self.__shape)):
-                new[i].append(self.__shape[x][y])
-        self.__shape = new
+            new_shape.append([])
+            for x_value in range(self.height):
+                new_shape[i].append(self.shape[x_value][y_value])
+        self.shape = new_shape
 
     @property
-    def x(self):
-        return self.__x
+    def x_value(self):
+        return self.__x_value
 
-    @x.setter
-    def x(self, x):
-        self.__x = x
+    @x_value.setter
+    def x_value(self, new_x_value):
+        self.__x_value = new_x_value
 
     @property
-    def y(self):
-        return self.__y
+    def y_value(self):
+        return self.__y_value
 
-    @y.setter
-    def y(self, y):
-        self.__y = y
+    @y_value.setter
+    def y_value(self, new_y_value):
+        self.__y_value = new_y_value
 
     @property
     def shape(self):
         return self.__shape
+
+    @shape.setter
+    def shape(self, new_shape):
+        self.__shape = new_shape
 
     @property
     def color(self):
