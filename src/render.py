@@ -2,12 +2,13 @@ import pygame
 
 
 class Render:
-    def __init__(self, display, block, level, cell_size, corner):
+    def __init__(self, display, block, grid, cell_size, corner, bkgd_color):
         self.__display = display
         self.__block = block
-        self.__level = level
+        self.__grid = grid
         self.__cell_size = cell_size
         self.__corner = corner
+        self.__bg_color = bkgd_color
 
     def draw(self):
         self.__draw_background()
@@ -16,7 +17,7 @@ class Render:
         self.__init_changes()
 
     def __draw_background(self):
-        self.__display.fill((255, 255, 255))
+        self.__display.fill(self.__bg_color)
 
     def __draw_block(self):
         for row in range(self.__block.height):
@@ -26,9 +27,9 @@ class Render:
                         self.__display,
                         self.__block.color,
                         pygame.Rect(
-                            self.__corner+(self.__block.x_value +
+                            self.__corner+(self.__block.x_pos +
                                            col)*self.__cell_size,
-                            self.__corner+(self.__block.y_value +
+                            self.__corner+(self.__block.y_pos +
                                            row)*self.__cell_size,
                             self.__cell_size,
                             self.__cell_size
@@ -36,10 +37,10 @@ class Render:
                     )
 
     def __draw_grid(self):
-        for row in range(20):
-            for col in range(10):
-                if self.__level.grid[row][col] != 0:
-                    color = self.__level.grid[row][col]
+        for row in range(self.__grid.height):
+            for col in range(self.__grid.width):
+                if self.__grid.grid[row][col] != 0:
+                    color = self.__grid.grid[row][col]
                     pygame.draw.rect(
                         self.__display,
                         color,
@@ -52,7 +53,7 @@ class Render:
                     )
                 pygame.draw.rect(
                     self.__display,
-                    (120, 120, 120),
+                    self.__grid.color,
                     pygame.Rect(
                         self.__corner+col*self.__cell_size,
                         self.__corner+row*self.__cell_size,

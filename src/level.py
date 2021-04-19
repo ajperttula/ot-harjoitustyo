@@ -1,82 +1,69 @@
 class Level:
-    def __init__(self, block):
-        self.__grid = [[0 for column in range(10)] for row in range(20)]
+    def __init__(self, block, grid):
+        self.__grid = grid
         self.__block = block
 
     def move_block(self, delta_x: int):
-        for y_value in range(self.__block.height):
-            for x_value in range(self.__block.width):
-                if self.__block_cannot_move(y_value, x_value, delta_x):
-                    return
-        self.__block.x_value += delta_x
+        self.__block.x_pos += delta_x
 
-    def __block_cannot_move(self, y_value, x_value, delta_x):
-        if (self.__block.shape[y_value][x_value] == 1 and
-            (self.__block.x_value + delta_x < 0 or
-            self.__block.x_value + self.__block.width + delta_x > 10 or
-                self.grid[self.__block.y_value +
-                          y_value][self.__block.x_value+x_value+delta_x] != 0)):
-            return True
-        return False
+        if self.__block_collides():
+            self.__block.x_pos -= delta_x
 
     def rotate_block(self):
         self.__block.rotate_clockwise()
-        for y_value in range(self.__block.height):
-            for x_value in range(self.__block.width):
-                if self.__block_cannot_rotate(y_value, x_value):
-                    self.__block.rotate_anticlockwise()
-                    return
 
-    def __block_cannot_rotate(self, y_value, x_value):
-        if (self.__block.shape[y_value][x_value] == 1 and
-            (self.__block.x_value < 0 or
-            self.__block.x_value + self.__block.width > 10 or
-            self.__block.y_value + self.__block.height > 20 or
-                self.grid[self.__block.y_value+y_value][self.__block.x_value+x_value] != 0)):
-            return True
-        return False
+        if self.__block_collides():
+            self.__block.rotate_anticlockwise()
 
     def lower_block(self):
-        for y_value in range(self.__block.height):
-            for x_value in range(self.__block.width):
-                if self.__block_collides(y_value, x_value):
-                    self.__update_grid()
-                    self.__check_for_full_rows()
-                    self.__reset_block_position()
-                    return False
-        self.__block.y_value += 1
-        return True
+        def update_grid():
+            self.__grid.update_grid(self.__block)
 
-    def __block_collides(self, y_value, x_value):
-        if (self.__block.shape[y_value][x_value] == 1 and
-            (self.__block.y_value + self.__block.height + 1 > 20 or
-                self.grid[self.__block.y_value+y_value+1][self.__block.x_value+x_value] != 0)):
-            return True
-        return False
+        def check_for_full_rows():
+            self.__grid.check_for_full_rows()
+
+        def reset_block_position():
+            self.__block.reset_position()
+
+        self.__block.y_pos += 1
+
+        if self.__block_collides():
+            self.__block.y_pos -= 1
+            update_grid()
+            check_for_full_rows()
+            reset_block_position()
+            return False
+
+        return True
 
     def drop_block(self):
         while self.lower_block():
             continue
 
-    def __update_grid(self):
-        for y_value in range(self.__block.height):
-            for x_value in range(self.__block.width):
-                if self.__block.shape[y_value][x_value] == 1:
-                    self.__color_grid(y_value, x_value)
+    def __block_collides(self):
+        def position_is_block(row, col):
+            return self.__block.shape[row][col] == 1
 
-    def __color_grid(self, y_value, x_value):
-        self.grid[self.__block.y_value +
-                  y_value][self.__block.x_value+x_value] = self.__block.color
+        def position_is_occupied(row, col):
+            return self.__grid.grid[self.__block.y_pos+row][self.__block.x_pos+col] != 0
 
-    def __check_for_full_rows(self):
-        for row in range(20):
-            if self.grid[row].count(0) == 0:
-                self.grid.pop(row)
-                self.grid.insert(0, [0 for x in range(10)])
+        def position_is_past_left_border():
+            return self.__block.x_pos < 0
 
-    def __reset_block_position(self):
-        self.__block.reset_position()
+        def position_is_past_right_border():
+            return self.__block.x_pos + self.__block.width > self.__grid.width
 
-    @property
-    def grid(self):
-        return self.__grid
+        def position_is_past_floor():
+            return self.__block.y_pos + self.__block.height > self.__grid.height
+
+        if (position_is_past_left_border() or
+            position_is_past_right_border() or
+                position_is_past_floor()):
+            return True
+
+        for row in range(self.__block.height):
+            for col in range(self.__block.width):
+                if position_is_block(row, col) and position_is_occupied(row, col):
+                    return True
+
+        return False

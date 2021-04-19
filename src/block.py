@@ -28,8 +28,8 @@ class Block:
         self.reset_position()
 
     def reset_position(self):
-        self.__y_value = 0
-        self.__x_value = 4
+        self.__y_pos = 0
+        self.__x_pos = 4
         self.__shape = self.__new_shape()
         self.__color = self.__new_color()
 
@@ -58,20 +58,20 @@ class Block:
         self.shape = new_shape
 
     @property
-    def x_value(self):
-        return self.__x_value
+    def x_pos(self):
+        return self.__x_pos
 
-    @x_value.setter
-    def x_value(self, new_x_value):
-        self.__x_value = new_x_value
+    @x_pos.setter
+    def x_pos(self, new_x_pos):
+        self.__x_pos = new_x_pos
 
     @property
-    def y_value(self):
-        return self.__y_value
+    def y_pos(self):
+        return self.__y_pos
 
-    @y_value.setter
-    def y_value(self, new_y_value):
-        self.__y_value = new_y_value
+    @y_pos.setter
+    def y_pos(self, new_y_pos):
+        self.__y_pos = new_y_pos
 
     @property
     def shape(self):
