@@ -14,7 +14,7 @@ GRID_HEIGHT = 20
 GRID_WIDTH = 10
 SCREEN_HEIGHT = 550
 SCREEN_WIDTH = 400
-BKGD_COLOR = (255, 255, 255)
+BG_COLOR = (255, 255, 255)
 
 
 def main():
@@ -28,7 +28,7 @@ def main():
     level = Level(block, grid)
     clock = Clock()
     event_queue = Event()
-    renderer = Render(display, block, grid, CELL_SIZE, CORNER, BKGD_COLOR)
+    renderer = Render(display, block, grid, CELL_SIZE, CORNER, BG_COLOR)
     pace = Pace()
     gameloop = GameLoop(level, clock, event_queue, renderer, pace)
 

@@ -2,13 +2,13 @@ import pygame
 
 
 class Render:
-    def __init__(self, display, block, grid, cell_size, corner, bkgd_color):
+    def __init__(self, display, block, grid, cell_size, corner, bg_color):
         self.__display = display
         self.__block = block
         self.__grid = grid
         self.__cell_size = cell_size
         self.__corner = corner
-        self.__bg_color = bkgd_color
+        self.__bg_color = bg_color
 
     def draw(self):
         self.__draw_background()
@@ -23,45 +23,30 @@ class Render:
         for row in range(self.__block.height):
             for col in range(self.__block.width):
                 if self.__block.shape[row][col] == 1:
-                    pygame.draw.rect(
-                        self.__display,
-                        self.__block.color,
-                        pygame.Rect(
-                            self.__corner+(self.__block.x_pos +
-                                           col)*self.__cell_size,
-                            self.__corner+(self.__block.y_pos +
-                                           row)*self.__cell_size,
-                            self.__cell_size,
-                            self.__cell_size
-                        )
-                    )
+                    self.__draw_rectangle("block", row, col, self.__block.color)
 
     def __draw_grid(self):
         for row in range(self.__grid.height):
             for col in range(self.__grid.width):
                 if self.__grid.grid[row][col] != 0:
                     color = self.__grid.grid[row][col]
-                    pygame.draw.rect(
-                        self.__display,
-                        color,
-                        pygame.Rect(
-                            self.__corner+col*self.__cell_size,
-                            self.__corner+row*self.__cell_size,
-                            self.__cell_size,
-                            self.__cell_size
-                        )
-                    )
-                pygame.draw.rect(
-                    self.__display,
-                    self.__grid.color,
-                    pygame.Rect(
-                        self.__corner+col*self.__cell_size,
-                        self.__corner+row*self.__cell_size,
-                        self.__cell_size,
-                        self.__cell_size
-                    ),
-                    1
-                )
+                    self.__draw_rectangle("grid", row, col, color)
+                self.__draw_rectangle("grid", row, col, self.__grid.color, 1)
 
     def __init_changes(self):
         pygame.display.flip()
+
+    def __draw_rectangle(self, name, row, col, color, border=0):
+        if name == "block":
+            x_pos = self.__corner + (self.__block.x_pos+col) * self.__cell_size
+            y_pos = self.__corner + (self.__block.y_pos+row) * self.__cell_size
+        elif name == "grid":
+            x_pos = self.__corner + col * self.__cell_size
+            y_pos = self.__corner + row * self.__cell_size
+        width = self.__cell_size
+        height = self.__cell_size
+
+        pygame.draw.rect(self.__display,
+                         color,
+                         pygame.Rect(x_pos, y_pos, width, height),
+                         border)
