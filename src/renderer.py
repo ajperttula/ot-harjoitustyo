@@ -1,7 +1,7 @@
 import pygame
 
 
-class Render:
+class Renderer:
     def __init__(self, display, block, grid, cell_size, corner, bg_color):
         self.__display = display
         self.__block = block
