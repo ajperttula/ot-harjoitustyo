@@ -6,6 +6,8 @@
 
 [Tuntikirjanpito](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
+[Pelin arkkitehtuuri](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Luokkakaavio.png)
+
 ## Asennus
 
 Asenna riippuvuudet komennolla
