@@ -3,8 +3,6 @@ class Grid:
 
     def __init__(self, width, height):
         self.__grid = self.__create_grid(width, height)
-        self.__width = width
-        self.__height = height
         self.__color = Grid.COLOR
 
     def __create_grid(self, width, height):
@@ -40,11 +38,11 @@ class Grid:
 
     @property
     def width(self):
-        return self.__width
+        return len(self.__grid[0])
 
     @property
     def height(self):
-        return self.__height
+        return len(self.__grid)
 
     @property
     def color(self):
