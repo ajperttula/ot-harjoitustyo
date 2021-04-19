@@ -20,15 +20,21 @@ class Render:
         self.__display.fill(self.__bg_color)
 
     def __draw_block(self):
+        def position_is_block(row, col):
+            return self.__block.shape[row][col] == 1
+
         for row in range(self.__block.height):
             for col in range(self.__block.width):
-                if self.__block.shape[row][col] == 1:
+                if position_is_block(row, col):
                     self.__draw_rectangle("block", row, col, self.__block.color)
 
     def __draw_grid(self):
+        def position_is_occupied(row, col):
+            return self.__grid.grid[row][col] != 0
+
         for row in range(self.__grid.height):
             for col in range(self.__grid.width):
-                if self.__grid.grid[row][col] != 0:
+                if position_is_occupied(row, col):
                     color = self.__grid.grid[row][col]
                     self.__draw_rectangle("grid", row, col, color)
                 self.__draw_rectangle("grid", row, col, self.__grid.color, 1)
