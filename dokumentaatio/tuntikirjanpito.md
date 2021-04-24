@@ -11,4 +11,5 @@
 | 15.4. | 7    | palikan nopea liikuttaminen, palikan pudotus, täyden rivin tyhjennys, refaktorointia |
 | 16.4. | 5    | pylint käyttöön, lisää testejä, refaktorointia |
 | 19.4. | 5    | grid eriytys omaksi luokaksi, toisteisuutta pois koodista, luokkakaavion lisäys, lisää testejä |
-|   yht | 36   | | 
+| 24.4. | 4    | pistelaskuri, pelitempon kasvu, game over tilanne |
+|   yht | 40   | | 
