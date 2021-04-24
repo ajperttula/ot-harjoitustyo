@@ -2,11 +2,12 @@ import unittest
 from level import Level
 from block import Block
 from grid import Grid
+from score import Score
 
 
 class TestLevel(unittest.TestCase):
     def setUp(self):
-        self.level = Level(Block(), Grid(10, 20))
+        self.level = Level(Block(), Grid(10, 20), Score())
         self.level._Level__block.shape = [[1],
                                           [1],
                                           [1],
