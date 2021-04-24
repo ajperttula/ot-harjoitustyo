@@ -6,6 +6,7 @@ from clock import Clock
 from event import Event
 from renderer import Renderer
 from pace import Pace
+from score import Score
 from gameloop import GameLoop
 
 CELL_SIZE = 25
@@ -24,13 +25,14 @@ def main():
     pygame.display.set_caption("TETRIS")
 
     block = Block()
+    pace = Pace()
+    score = Score()
     grid = Grid(GRID_WIDTH, GRID_HEIGHT)
-    level = Level(block, grid)
+    level = Level(block, grid, score)
     clock = Clock()
     event_queue = Event()
-    renderer = Renderer(display, block, grid, CELL_SIZE, CORNER, BG_COLOR)
-    pace = Pace()
-    gameloop = GameLoop(level, clock, event_queue, renderer, pace)
+    renderer = Renderer(display, block, grid, CELL_SIZE, CORNER, BG_COLOR, score)
+    gameloop = GameLoop(level, clock, event_queue, renderer, pace, score)
 
     gameloop.start()
 

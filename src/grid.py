@@ -28,9 +28,12 @@ class Grid:
             self.__grid.pop(row)
             self.__grid.insert(0, [0 for col in range(self.width)])
 
+        count = 0
         for row in range(self.height):
             if row_is_full(row):
                 delete_row(row)
+                count += 1
+        return count
 
     @property
     def grid(self):

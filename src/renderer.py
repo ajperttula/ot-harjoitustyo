@@ -2,13 +2,15 @@ import pygame
 
 
 class Renderer:
-    def __init__(self, display, block, grid, cell_size, corner, bg_color):
+    def __init__(self, display, block, grid, cell_size, corner, bg_color, score):
         self.__display = display
         self.__block = block
         self.__grid = grid
         self.__cell_size = cell_size
         self.__corner = corner
         self.__bg_color = bg_color
+        self.__score = score
+        self.__font = pygame.font.SysFont("Lucida Console", 20)
 
     def draw(self):
         self.__draw_background()
@@ -40,6 +42,8 @@ class Renderer:
                 self.__draw_rectangle("grid", row, col, self.__grid.color, 1)
 
     def __init_changes(self):
+        score = self.__font.render(f"score: {self.__score.score}", True, (0, 0, 0))
+        self.__display.blit(score, (280, 20))
         pygame.display.flip()
 
     def __draw_rectangle(self, name, row, col, color, border=0):

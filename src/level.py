@@ -1,7 +1,8 @@
 class Level:
-    def __init__(self, block, grid):
+    def __init__(self, block, grid, score):
         self.__grid = grid
         self.__block = block
+        self.__score = score
 
     def move_block(self, delta_x: int):
         self.__block.x_pos += delta_x
@@ -20,20 +21,20 @@ class Level:
             self.__grid.update_grid(self.__block)
 
         def check_for_full_rows():
-            self.__grid.check_for_full_rows()
+            count = self.__grid.check_for_full_rows()
+            if count:
+                self.__score.add_score(count)
 
         def reset_block_position():
             self.__block.reset_position()
 
         self.__block.y_pos += 1
-
         if self.__block_collides():
             self.__block.y_pos -= 1
             update_grid()
             check_for_full_rows()
             reset_block_position()
             return False
-
         return True
 
     def drop_block(self):
@@ -65,5 +66,4 @@ class Level:
             for col in range(self.__block.width):
                 if position_is_block(row, col) and position_is_occupied(row, col):
                     return True
-
         return False
