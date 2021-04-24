@@ -9,13 +9,11 @@ from pace import Pace
 from score import Score
 from gameloop import GameLoop
 
-CELL_SIZE = 25
-CORNER = 20
+
 GRID_HEIGHT = 20
 GRID_WIDTH = 10
 SCREEN_HEIGHT = 550
 SCREEN_WIDTH = 400
-BG_COLOR = (255, 255, 255)
 
 
 def main():
@@ -31,7 +29,7 @@ def main():
     level = Level(block, grid, score)
     clock = Clock()
     event_queue = Event()
-    renderer = Renderer(display, block, grid, CELL_SIZE, CORNER, BG_COLOR, score)
+    renderer = Renderer(display, block, grid, score)
     gameloop = GameLoop(level, clock, event_queue, renderer, pace, score)
 
     gameloop.start()

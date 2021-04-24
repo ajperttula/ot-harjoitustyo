@@ -1,14 +1,16 @@
 import pygame
 
 
+CELL_SIZE = 25
+CORNER = 20
+BG_COLOR = (255, 255, 255)
+
+
 class Renderer:
-    def __init__(self, display, block, grid, cell_size, corner, bg_color, score):
+    def __init__(self, display, block, grid, score):
         self.__display = display
         self.__block = block
         self.__grid = grid
-        self.__cell_size = cell_size
-        self.__corner = corner
-        self.__bg_color = bg_color
         self.__score = score
         self.__font = pygame.font.SysFont("Lucida Console", 20)
 
@@ -19,7 +21,7 @@ class Renderer:
         self.__init_changes()
 
     def __draw_background(self):
-        self.__display.fill(self.__bg_color)
+        self.__display.fill(BG_COLOR)
 
     def __draw_block(self):
         def position_is_block(row, col):
@@ -48,13 +50,13 @@ class Renderer:
 
     def __draw_rectangle(self, name, row, col, color, border=0):
         if name == "block":
-            x_pos = self.__corner + (self.__block.x_pos+col) * self.__cell_size
-            y_pos = self.__corner + (self.__block.y_pos+row) * self.__cell_size
+            x_pos = CORNER + (self.__block.x_pos+col) * CELL_SIZE
+            y_pos = CORNER + (self.__block.y_pos+row) * CELL_SIZE
         elif name == "grid":
-            x_pos = self.__corner + col * self.__cell_size
-            y_pos = self.__corner + row * self.__cell_size
-        width = self.__cell_size
-        height = self.__cell_size
+            x_pos = CORNER + col * CELL_SIZE
+            y_pos = CORNER + row * CELL_SIZE
+        width = CELL_SIZE
+        height = CELL_SIZE
 
         pygame.draw.rect(self.__display,
                          color,
