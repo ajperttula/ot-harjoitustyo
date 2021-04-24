@@ -3,6 +3,7 @@ class Level:
         self.__grid = grid
         self.__block = block
         self.__score = score
+        self.__game_over = False
 
     def move_block(self, delta_x: int):
         self.__block.x_pos += delta_x
@@ -25,15 +26,22 @@ class Level:
             if count:
                 self.__score.add_score(count)
 
+        def game_over():
+            if self.__block_collides():
+                self.__game_over = True
+                return True
+            return False
+
         def reset_block_position():
             self.__block.reset_position()
 
         self.__block.y_pos += 1
         if self.__block_collides():
             self.__block.y_pos -= 1
-            update_grid()
-            check_for_full_rows()
-            reset_block_position()
+            if not game_over():
+                update_grid()
+                check_for_full_rows()
+                reset_block_position()
             return False
         return True
 
@@ -67,3 +75,7 @@ class Level:
                 if position_is_block(row, col) and position_is_occupied(row, col):
                     return True
         return False
+
+    @property
+    def game_over(self):
+        return self.__game_over

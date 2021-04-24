@@ -11,12 +11,15 @@ class GameLoop:
         self.__score = score
 
     def start(self):
-        while True:
+        while not self.__game_over():
             self.__check_counter()
             self.__check_score()
             self.__check_events()
             self.__render()
             self.__clock.tick(60)
+
+    def __game_over(self):
+        return self.__level.game_over
 
     def __check_counter(self):
         if self.__pace.check_counter():
