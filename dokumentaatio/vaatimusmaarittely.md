@@ -30,8 +30,8 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
   - [x] Pelaaja voi pudottaa palikan alas
   - [ ] Peli näyttää seuraavana vuorossa olevan palikan
   - [x] Rivin tullessa täyteen rivi katoaa
-  - [ ] Rivin tullessa täyteen pisteet lisääntyy
-  - [ ] 10 pisteen välein pelin tempo kasvaa
+  - [x] Rivin tullessa täyteen pisteet lisääntyy
+  - [x] 15 pisteen välein pelin tempo kasvaa
 
 ### Tulosnäkymässä
 - [ ] Pelaaja voi tarkastella huipputuloksia
