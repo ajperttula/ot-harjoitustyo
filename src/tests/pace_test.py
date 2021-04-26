@@ -1,5 +1,5 @@
 import unittest
-from pace import Pace
+from level_elements.pace import Pace
 
 
 class TestPace(unittest.TestCase):

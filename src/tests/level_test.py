@@ -1,8 +1,8 @@
 import unittest
 from level import Level
-from block import Block
-from grid import Grid
-from score import Score
+from level_elements.block import Block
+from level_elements.grid import Grid
+from level_elements.score import Score
 
 
 class TestLevel(unittest.TestCase):

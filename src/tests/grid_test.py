@@ -1,6 +1,6 @@
 import unittest
-from grid import Grid
-from block import Block
+from level_elements.grid import Grid
+from level_elements.block import Block
 
 
 class TestGrid(unittest.TestCase):

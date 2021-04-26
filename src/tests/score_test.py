@@ -1,5 +1,5 @@
 import unittest
-from score import Score
+from level_elements.score import Score
 
 
 class TestScore(unittest.TestCase):
