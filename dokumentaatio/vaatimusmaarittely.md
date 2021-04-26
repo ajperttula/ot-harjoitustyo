@@ -28,7 +28,7 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
   - [x] Pelaaja voi siirtää putoavaa palikkaa pelikentän laidalta toiselle
   - [x] Pelaaja voi nopeuttaa palikan putoamista
   - [x] Pelaaja voi pudottaa palikan alas
-  - [ ] Peli näyttää seuraavana vuorossa olevan palikan
+  - [x] Peli näyttää seuraavana vuorossa olevan palikan
   - [x] Rivin tullessa täyteen rivi katoaa
   - [x] Rivin tullessa täyteen pisteet lisääntyy
   - [x] 15 pisteen välein pelin tempo kasvaa
