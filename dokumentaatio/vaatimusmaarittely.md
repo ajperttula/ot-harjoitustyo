@@ -2,7 +2,7 @@
 
 ## Pelin idea
 
-Peli on klassinen Tetris, jossa palikoita tippuu pelialueen yläosasta alaspäin. Pelaajan tarkoituksena on siirrellä palikoita niin, että saadaan kokonainen rivi täyttymään, jolloin kyseinen rivi häviää ja lisää tilaa vapautuu pelialueelle. Ideana on saada mahdollisimman korkeat pisteet pelin nopeuden ja vaikeuden kasvaessa. Peli päättyy, kun alue täyttyy siten, että jokin palikka koskettaa pelikentän yläosaa.
+Peli on klassinen Tetris, jossa palikoita tippuu pelialueen yläosasta alaspäin. Pelaajan tarkoituksena on siirrellä palikoita niin, että saadaan kokonainen rivi täyttymään, jolloin kyseinen rivi häviää ja lisää tilaa vapautuu pelialueelle. Ideana on saada mahdollisimman korkeat pisteet pelin nopeuden ja vaikeuden kasvaessa. Peli päättyy, kun uusi palikka ei mahdu putoamaan pelialueelle.
 
 ## Käyttöliittymäluonnos
 
@@ -19,9 +19,9 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
 - [ ] Pelaaja voi sulkea ohjelman
 
 ### Pelinäkymässä
-- [ ] Pelaaja voi aloittaa uuden pelin
+- [x] Pelaaja voi aloittaa uuden pelin
 - [ ] Pelaaja voi siirtyä takaisin päävalikkoon
-- [ ] Peli loppuu, kun uudella palikalla ei ole enää tilaa pudota alaspäin
+- [x] Peli loppuu, kun uudella palikalla ei ole enää tilaa pudota alaspäin
 - [ ] Jos pisteet yltävät top-10 listaan, Pelaaja voi antaa nimensä listattavaksi
   #### Pelin ollessa käynnissä
   - [x] Pelaaja voi kääntää putoavaa palikkaa
