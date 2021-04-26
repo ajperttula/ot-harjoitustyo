@@ -8,7 +8,7 @@ Peli, jossa pelaajan tehtävänä on järjestellä pelikentän yläosasta tippuv
 
 [Tuntikirjanpito](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
-[Pelin arkkitehtuuri](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Luokkakaavio.png)
+[Pelin arkkitehtuuri](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 ## Asennus
 
