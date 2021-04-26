@@ -1,5 +1,7 @@
 # TETRIS - Ohjelmistotekniikan harjoitustyö
 
+Peli, jossa pelaajan tehtävänä on järjestellä pelikentän yläosasta tippuvia palikoita siten, että saadaan kokonainen rivi täyttymään. Täysi rivi tuhoutuu, jolloin lisää tilaa vapautuu pelikenttään. Pisteiden kasvaessa myös pelin tempo kasvaa. Yritä päästä top-10 listaan!
+
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
