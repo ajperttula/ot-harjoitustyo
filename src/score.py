@@ -4,7 +4,7 @@ class Score:
 
     def add_score(self, points):
         self.__score += points
-        self.__counter += points
+        self.__counter += 1
 
     def check_score(self):
         if self.__counter == 15:

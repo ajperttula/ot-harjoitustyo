@@ -5,7 +5,7 @@ from block import Block
 
 class TestGrid(unittest.TestCase):
     def setUp(self):
-        self.grid = Grid(10, 20)
+        self.grid = Grid()
 
     def test_constructor_sets_right_width(self):
         self.assertEqual(self.grid.width, 10)
@@ -14,7 +14,7 @@ class TestGrid(unittest.TestCase):
         self.assertEqual(self.grid.height, 20)
 
     def test_update_grid_sets_block_color_as_value_to_block_coordinates(self):
-        # initial block coordinates are (0, 4)
+        # initial block coordinates are (0, 4), (0, 5), (1, 4), (1, 5)
 
         block = Block()
         block.shape = [[1, 1],

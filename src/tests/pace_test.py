@@ -12,7 +12,7 @@ class TestPace(unittest.TestCase):
     def test_constructor_sets_integer_to_zero(self):
         self.assertEqual(self.pace._Pace__integer, 0)
 
-    def test_constructor_sets_right_initial_difficulty(self):
+    def test_constructor_sets_difficulty_to_one(self):
         self.assertEqual(self.pace._Pace__difficulty, 1)
 
     def test_constructor_sets_go_fast_false(self):
@@ -22,7 +22,7 @@ class TestPace(unittest.TestCase):
         self.pace._Pace__increase_counter()
         self.assertEqual(self.pace._Pace__counter, 1)
 
-    def test_increase_counter_adds_multiplied_difficulty_to_counter_when_go_fast_true(self):
+    def test_increase_counter_adds_four_times_difficulty_to_counter_when_go_fast_true(self):
         self.pace.increase_speed()
         self.pace._Pace__increase_counter()
         self.assertEqual(self.pace._Pace__counter, 4)
@@ -55,3 +55,7 @@ class TestPace(unittest.TestCase):
         self.pace.increase_speed()
         self.pace.decrease_speed()
         self.assertFalse(self.pace._Pace__go_fast)
+
+    def test_increase_difficulty_adds_one_to_difficulty(self):
+        self.pace.increase_difficulty()
+        self.assertEqual(self.pace._Pace__difficulty, 2)

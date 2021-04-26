@@ -7,7 +7,7 @@ from score import Score
 
 class TestLevel(unittest.TestCase):
     def setUp(self):
-        self.level = Level(Block(), Grid(10, 20), Score())
+        self.level = Level(Block(), Grid(), Score())
         self.level._Level__block.shape = [[1],
                                           [1],
                                           [1],
@@ -69,3 +69,21 @@ class TestLevel(unittest.TestCase):
         self.level.rotate_block()
         new_shape = self.level._Level__block.shape
         self.assertEqual(new_shape, old_shape)
+
+    def test_reset_game_state_sets_game_over_false(self):
+        self.level._Level__game_over = True
+        self.level.reset_game_state()
+        self.assertFalse(self.level._Level__game_over)
+
+    def test_reset_game_state_resets_block_x_position(self):
+        self.level.block.x_pos = 7
+        self.level.reset_game_state()
+        self.assertEqual(self.level.block.x_pos, 4)
+
+    def test_reset_game_state_resets_block_y_position(self):
+        self.level.block.y_pos = 5
+        self.level.reset_game_state()
+        self.assertEqual(self.level.block.y_pos, 0)
+
+    def test_reset_game_state_resets_grid(self):
+        
