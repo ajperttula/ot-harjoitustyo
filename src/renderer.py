@@ -16,6 +16,7 @@ class Renderer:
     def draw(self):
         self.__draw_background()
         self.__draw_block()
+        self.__draw_next_block()
         self.__draw_grid()
         self.__draw_score()
         self.__draw_game_over()
@@ -32,6 +33,15 @@ class Renderer:
             for col in range(self.__level.block.width):
                 if position_is_block(row, col):
                     self.__draw_rectangle("block", row, col, self.__level.block.color)
+
+    def __draw_next_block(self):
+        def position_is_block(row, col):
+            return self.__level.block.next_shape[row][col] == 1
+
+        for row in range(self.__level.block.next_height):
+            for col in range(self.__level.block.next_width):
+                if position_is_block(row, col):
+                    self.__draw_rectangle("next_block", row, col, self.__level.block.next_color)
 
     def __draw_grid(self):
         def position_is_occupied(row, col):
@@ -69,6 +79,9 @@ class Renderer:
         if name == "block":
             x_pos = CORNER + (self.__level.block.x_pos+col) * CELL_SIZE
             y_pos = CORNER + (self.__level.block.y_pos+row) * CELL_SIZE
+        elif name == "next_block":
+            x_pos = 300 + col * CELL_SIZE
+            y_pos = 200 + row * CELL_SIZE
         elif name == "grid":
             x_pos = CORNER + col * CELL_SIZE
             y_pos = CORNER + row * CELL_SIZE

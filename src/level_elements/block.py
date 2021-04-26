@@ -25,19 +25,29 @@ class Block:
     COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 
     def __init__(self):
+        self.__create_next_shape()
+        self.__create_next_color()
         self.reset_position()
 
     def reset_position(self):
         self.__y_pos = 0
         self.__x_pos = 4
-        self.__shape = self.__new_shape()
-        self.__color = self.__new_color()
+        self.__new_shape()
+        self.__new_color()
 
     def __new_shape(self):
-        return Block.SHAPES[randint(0, len(Block.SHAPES)-1)]
+        self.__shape = self.__next_shape
+        self.__create_next_shape()
 
     def __new_color(self):
-        return Block.COLORS[randint(0, len(Block.COLORS)-1)]
+        self.__color = self.__next_color
+        self.__create_next_color()
+
+    def __create_next_shape(self):
+        self.__next_shape = Block.SHAPES[randint(0, len(Block.SHAPES)-1)]
+
+    def __create_next_color(self):
+        self.__next_color = Block.COLORS[randint(0, len(Block.COLORS)-1)]
 
     def rotate_clockwise(self):
         new_shape = []
@@ -84,6 +94,22 @@ class Block:
     @property
     def color(self):
         return self.__color
+
+    @property
+    def next_shape(self):
+        return self.__next_shape
+
+    @property
+    def next_color(self):
+        return self.__next_color
+
+    @property
+    def next_height(self):
+        return len(self.__next_shape)
+
+    @property
+    def next_width(self):
+        return len(self.__next_shape[0])
 
     @property
     def height(self):
