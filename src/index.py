@@ -1,12 +1,12 @@
 import pygame
-from block import Block
+from level_elements.block import Block
+from level_elements.grid import Grid
+from level_elements.pace import Pace
+from level_elements.score import Score
 from level import Level
-from grid import Grid
 from clock import Clock
 from event import Event
 from renderer import Renderer
-from pace import Pace
-from score import Score
 from gameloop import GameLoop
 
 
