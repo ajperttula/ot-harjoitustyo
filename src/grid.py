@@ -1,12 +1,13 @@
 class Grid:
     COLOR = (125, 125, 125)
+    GRID_HEIGHT = 20
+    GRID_WIDTH = 10
 
-    def __init__(self, width, height):
-        self.__grid = self.__create_grid(width, height)
-        self.__color = Grid.COLOR
+    def __init__(self):
+        self.reset_grid()
 
-    def __create_grid(self, width, height):
-        return [[0 for col in range(width)] for row in range(height)]
+    def __create_grid(self):
+        return [[0 for col in range(Grid.GRID_WIDTH)] for row in range(Grid.GRID_HEIGHT)]
 
     def update_grid(self, block):
         def position_is_block(row, col):
@@ -34,6 +35,10 @@ class Grid:
                 delete_row(row)
                 count += 1
         return count
+
+    def reset_grid(self):
+        self.__grid = self.__create_grid()
+        self.__color = Grid.COLOR
 
     @property
     def grid(self):

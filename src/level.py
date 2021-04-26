@@ -49,6 +49,12 @@ class Level:
         while self.lower_block():
             continue
 
+    def reset_game_state(self):
+        self.__game_over = False
+        self.__block.reset_position()
+        self.__grid.reset_grid()
+        self.__score.reset_score()
+
     def __block_collides(self):
         def position_is_block(row, col):
             return self.__block.shape[row][col] == 1
@@ -79,3 +85,15 @@ class Level:
     @property
     def game_over(self):
         return self.__game_over
+
+    @property
+    def block(self):
+        return self.__block
+
+    @property
+    def grid(self):
+        return self.__grid
+
+    @property
+    def score(self):
+        return self.__score

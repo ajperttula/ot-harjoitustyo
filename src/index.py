@@ -10,8 +10,6 @@ from score import Score
 from gameloop import GameLoop
 
 
-GRID_HEIGHT = 20
-GRID_WIDTH = 10
 SCREEN_HEIGHT = 550
 SCREEN_WIDTH = 400
 
@@ -25,14 +23,14 @@ def main():
     block = Block()
     pace = Pace()
     score = Score()
-    grid = Grid(GRID_WIDTH, GRID_HEIGHT)
+    grid = Grid()
     level = Level(block, grid, score)
     clock = Clock()
     event_queue = Event()
-    renderer = Renderer(display, block, grid, score)
-    gameloop = GameLoop(level, clock, event_queue, renderer, pace, score)
+    renderer = Renderer(display, level)
+    gameloop = GameLoop(level, clock, event_queue, renderer, pace)
 
-    gameloop.start()
+    gameloop.new_game()
 
 
 if __name__ == "__main__":

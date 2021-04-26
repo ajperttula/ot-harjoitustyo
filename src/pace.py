@@ -1,9 +1,6 @@
 class Pace:
     def __init__(self):
-        self.__counter = 0
-        self.__integer = 0
-        self.__difficulty = 1
-        self.__go_fast = False
+        self.reset_pace()
 
     def check_counter(self):
         self.__increase_counter()
@@ -26,3 +23,9 @@ class Pace:
 
     def increase_difficulty(self):
         self.__difficulty += 1
+
+    def reset_pace(self):
+        self.__counter = 0
+        self.__integer = 0
+        self.__difficulty = 1
+        self.__go_fast = False
