@@ -13,4 +13,5 @@
 | 19.4. | 5    | grid eriytys omaksi luokaksi, toisteisuutta pois koodista, luokkakaavion lisäys, lisää testejä |
 | 24.4. | 4    | pistelaskuri, pelitempon kasvu, game over tilanne |
 | 26.4. | 8    | game over tilanne, mahdollisuus uuteen peliin, sekvenssikaavioita, seuraavan palikan näyttö |
-|   yht | 48   | | 
+| 27.4. | 5    | tietokantatallennuksen ja valikkojen suunnittelua, lisää sekvenssikaavioita, releasen tekeminen |
+|   yht | 53   | | 
