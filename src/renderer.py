@@ -3,7 +3,7 @@ import pygame
 
 CELL_SIZE = 25
 CORNER = 20
-BG_COLOR = (255, 255, 255)
+BG_COLOR = (235, 235, 235)
 
 
 class Renderer:
@@ -38,10 +38,14 @@ class Renderer:
         def position_is_block(row, col):
             return self.__level.block.next_shape[row][col] == 1
 
+        text = self.__font_small.render("next:", True, (0, 0, 0))
+        self.__display.blit(text, (290, 100))
+
         for row in range(self.__level.block.next_height):
             for col in range(self.__level.block.next_width):
                 if position_is_block(row, col):
                     self.__draw_rectangle("next_block", row, col, self.__level.block.next_color)
+                    self.__draw_rectangle("next_block", row, col, self.__level.grid.color, 1)
 
     def __draw_grid(self):
         def position_is_occupied(row, col):
@@ -56,7 +60,7 @@ class Renderer:
 
     def __draw_score(self):
         score = self.__font_small.render(f"score: {self.__level.score.score}", True, (0, 0, 0))
-        self.__display.blit(score, (282, 20))
+        self.__display.blit(score, (290, 20))
 
     def __draw_game_over(self):
         if self.__level.game_over:
@@ -80,8 +84,8 @@ class Renderer:
             x_pos = CORNER + (self.__level.block.x_pos+col) * CELL_SIZE
             y_pos = CORNER + (self.__level.block.y_pos+row) * CELL_SIZE
         elif name == "next_block":
-            x_pos = 300 + col * CELL_SIZE
-            y_pos = 200 + row * CELL_SIZE
+            x_pos = 305 + col * CELL_SIZE
+            y_pos = 150 + row * CELL_SIZE
         elif name == "grid":
             x_pos = CORNER + col * CELL_SIZE
             y_pos = CORNER + row * CELL_SIZE

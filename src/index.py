@@ -11,7 +11,7 @@ from gameloop import GameLoop
 
 
 SCREEN_HEIGHT = 550
-SCREEN_WIDTH = 400
+SCREEN_WIDTH = 430
 
 
 def main():
