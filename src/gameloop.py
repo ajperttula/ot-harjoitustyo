@@ -1,3 +1,4 @@
+import sys
 import pygame
 
 
@@ -44,7 +45,7 @@ class GameLoop:
     def __check_events(self):
         for event in self.__event_queue.get():
             if event.type == pygame.QUIT:
-                exit()
+                sys.exit()
             if event.type == pygame.KEYDOWN:
                 if not self.__game_over:
                     if event.key == pygame.K_LEFT:
