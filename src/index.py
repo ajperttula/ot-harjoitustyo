@@ -8,6 +8,7 @@ from clock import Clock
 from event import Event
 from renderer import Renderer
 from gameloop import GameLoop
+from repository.score_repository import score_repository
 
 
 SCREEN_HEIGHT = 550
@@ -28,7 +29,7 @@ def main():
     clock = Clock()
     event_queue = Event()
     renderer = Renderer(display, level)
-    gameloop = GameLoop(level, clock, event_queue, renderer, pace)
+    gameloop = GameLoop(level, clock, event_queue, renderer, pace, score_repository)
 
     gameloop.new_game()
 

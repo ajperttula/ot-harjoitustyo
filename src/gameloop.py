@@ -3,12 +3,13 @@ import pygame
 
 
 class GameLoop:
-    def __init__(self, level, clock, event_queue, renderer, pace):
+    def __init__(self, level, clock, event_queue, renderer, pace, score_repository):
         self.__level = level
         self.__clock = clock
         self.__event_queue = event_queue
         self.__renderer = renderer
         self.__pace = pace
+        self.__score_repository = score_repository
         self.__game_over = False
 
     def new_game(self):
@@ -32,7 +33,12 @@ class GameLoop:
     def __check_game_over(self):
         if self.__level.game_over:
             self.__game_over = True
+            self.__save_score()
             self.__finished()
+
+    def __save_score(self):
+        score = self.__level.score.score
+        self.__score_repository.save_score(score)
 
     def __check_counter(self):
         if self.__pace.check_counter():
