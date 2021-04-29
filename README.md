@@ -18,6 +18,10 @@ Asenna riippuvuudet komennolla
 ```bash
 poetry install
 ```
+Alusta tietokantayhteys komennolla
+```bash
+poetry run invoke build
+```
 Käynnistä peli komennolla
 ```bash
 poetry run invoke start
@@ -28,6 +32,10 @@ poetry run invoke start
 #### Pelin käynnistys
 ```bash
 poetry run invoke start
+```
+#### Tietokantayhteyden alustus
+```bash
+poetry run invoke build
 ```
 #### Pylint testaus
 ```bash
