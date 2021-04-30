@@ -7,8 +7,11 @@ from level import Level
 from clock import Clock
 from event import Event
 from renderer import Renderer
+from ui_renderer import UIRenderer
 from gameloop import GameLoop
 from repository.score_repository import score_repository
+from player_name_view import PlayerNameView
+from main_menu import MainMenu
 
 
 SCREEN_HEIGHT = 550
@@ -25,13 +28,17 @@ def main():
     pace = Pace()
     score = Score()
     grid = Grid()
-    level = Level(block, grid, score)
+    level = Level(block, grid, score, pace)
     clock = Clock()
     event_queue = Event()
     renderer = Renderer(display, level)
-    gameloop = GameLoop(level, clock, event_queue, renderer, pace, score_repository)
+    ui_renderer = UIRenderer(display)
 
-    gameloop.new_game()
+    name_input = PlayerNameView(ui_renderer, event_queue)
+    gameloop = GameLoop(level, clock, event_queue, renderer, score_repository)
+    main_menu = MainMenu(ui_renderer, event_queue, name_input, gameloop)
+
+    main_menu.start()
 
 
 if __name__ == "__main__":

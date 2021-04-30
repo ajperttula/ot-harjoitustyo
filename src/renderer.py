@@ -14,17 +14,14 @@ class Renderer:
         self.__font_small = pygame.font.SysFont("Lucida Console", 20)
         self.__font_big = pygame.font.SysFont("Lucida Console", 50)
 
-    def draw(self, state, player_name=""):
+    def draw(self):
         self.__draw_background()
-        if state == "input":
-            self.__draw_text_input(player_name)
-        if state == "playing":
-            self.__draw_block()
-            self.__draw_next_block()
-            self.__draw_grid()
-            self.__draw_score()
-            if self.__level.game_over:
-                self.__draw_game_over()
+        self.__draw_block()
+        self.__draw_next_block()
+        self.__draw_grid()
+        self.__draw_score()
+        if self.__level.game_over:
+            self.__draw_game_over()
         self.__init_changes()
 
     def __draw_background(self):
@@ -79,21 +76,6 @@ class Renderer:
 
         self.__display.blit(game_over, position)
         self.__display.blit(instruction, position2)
-
-    def __draw_text_input(self, player_name):
-        display_height = self.__display.get_height()
-        display_width = self.__display.get_width()
-        text = self.__font_small.render("Player name:", True, TEXT_COLOR)
-        player_name = self.__font_small.render(player_name, True, TEXT_COLOR)
-        pos_x, pos_y = ((display_width-text.get_width())/2, (display_height-text.get_height())/2)
-        input_box = pygame.Rect((display_width-200)/2, pos_y+text.get_height()+10, 200, 30)
-        input_text_pos = (input_box.x+5, input_box.y+5)
-
-        self.__display.blit(text, (pos_x, pos_y))
-        pygame.draw.rect(self.__display,
-                         TEXT_COLOR,
-                         input_box, 1)
-        self.__display.blit(player_name, input_text_pos)
 
     def __init_changes(self):
         pygame.display.flip()

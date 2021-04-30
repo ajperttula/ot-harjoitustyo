@@ -1,8 +1,9 @@
 class Level:
-    def __init__(self, block, grid, score):
+    def __init__(self, block, grid, score, pace):
         self.__grid = grid
         self.__block = block
         self.__score = score
+        self.__pace = pace
         self.__game_over = False
 
     def move_block(self, delta_x: int):
@@ -49,11 +50,18 @@ class Level:
         while self.lower_block():
             continue
 
+    def increase_speed(self):
+        self.__pace.increase_speed()
+
+    def decrease_speed(self):
+        self.__pace.decrease_speed()
+
     def reset_game_state(self):
         self.__game_over = False
         self.__block.reset_position()
         self.__grid.reset_grid()
         self.__score.reset_score()
+        self.__pace.reset_pace()
 
     def __block_collides(self):
         def position_is_block(row, col):
@@ -97,3 +105,7 @@ class Level:
     @property
     def score(self):
         return self.__score
+
+    @property
+    def pace(self):
+        return self.__pace
