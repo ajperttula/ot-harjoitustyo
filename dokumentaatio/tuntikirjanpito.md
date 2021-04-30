@@ -14,4 +14,5 @@
 | 24.4. | 4    | pistelaskuri, pelitempon kasvu, game over tilanne |
 | 26.4. | 8    | game over tilanne, mahdollisuus uuteen peliin, sekvenssikaavioita, seuraavan palikan näyttö |
 | 27.4. | 5    | tietokantatallennuksen ja valikkojen suunnittelua, lisää sekvenssikaavioita, releasen tekeminen |
-|   yht | 53   | | 
+| 29.4. | 3    | tietokantatallennuksen toteutus alustava versio |
+|   yht | 56   | | 
