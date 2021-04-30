@@ -33,10 +33,6 @@ poetry run invoke start
 ```bash
 poetry run invoke start
 ```
-#### Tietokantayhteyden alustus
-```bash
-poetry run invoke build
-```
 #### Pylint testaus
 ```bash
 poetry run invoke lint
