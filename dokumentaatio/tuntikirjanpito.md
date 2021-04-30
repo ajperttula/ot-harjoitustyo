@@ -15,4 +15,5 @@
 | 26.4. | 8    | game over tilanne, mahdollisuus uuteen peliin, sekvenssikaavioita, seuraavan palikan näyttö |
 | 27.4. | 5    | tietokantatallennuksen ja valikkojen suunnittelua, lisää sekvenssikaavioita, releasen tekeminen |
 | 29.4. | 3    | tietokantatallennuksen toteutus alustava versio |
-|   yht | 56   | | 
+| 30.4. | 5    | pelaajan nimen kysyminen, tietokantatallennuksen parannus, päävalikko |
+|   yht | 61   | | 
