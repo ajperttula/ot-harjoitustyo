@@ -3,11 +3,12 @@ import pygame
 
 
 class MainMenu:
-    def __init__(self, renderer, event_queue, name_input, gameloop):
+    def __init__(self, renderer, event_queue, name_input, gameloop, high_scores):
         self.__renderer = renderer
         self.__event_queue = event_queue
         self.__name_input = name_input
         self.__gameloop = gameloop
+        self.__high_scores = high_scores
 
     def start(self):
         while True:
@@ -21,6 +22,8 @@ class MainMenu:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if self.__renderer.new_game_button.collidepoint(event.pos):
                     self.__new_game()
+                if self.__renderer.high_scores_button.collidepoint(event.pos):
+                    self.__high_scores.loop()
                 if self.__renderer.exit_button.collidepoint(event.pos):
                     sys.exit()
 

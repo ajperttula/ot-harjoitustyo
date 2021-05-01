@@ -13,6 +13,7 @@ class GameRenderer:
         self.__level = level
         self.__font_small = pygame.font.SysFont("Lucida Console", 20)
         self.__font_big = pygame.font.SysFont("Lucida Console", 50)
+        self.__main_menu_button = self.__create_main_menu_button()
 
     def draw(self):
         self.__draw_background()
@@ -20,6 +21,7 @@ class GameRenderer:
         self.__draw_next_block()
         self.__draw_grid()
         self.__draw_score()
+        self.__draw_main_menu()
         if self.__level.game_over:
             self.__draw_game_over()
         self.__init_changes()
@@ -77,8 +79,18 @@ class GameRenderer:
         self.__display.blit(game_over, position)
         self.__display.blit(instruction, position2)
 
+    def __draw_main_menu(self):
+        main_menu_text = self.__font_small.render("Main menu", True, TEXT_COLOR)
+        pygame.draw.rect(self.__display,
+                         (255, 0, 0),
+                         self.__main_menu_button)
+        self.__display.blit(main_menu_text, (self.__main_menu_button.x+5, self.__main_menu_button.y+5))
+
     def __init_changes(self):
         pygame.display.flip()
+
+    def __create_main_menu_button(self):
+        return pygame.Rect(290, 480, 120, 40)
 
     def __draw_rectangle(self, name, row, col, color, border=0):
         if name == "block":
@@ -97,3 +109,7 @@ class GameRenderer:
                          color,
                          pygame.Rect(x_pos, y_pos, width, height),
                          border)
+
+    @property
+    def main_menu_button(self):
+        return self.__main_menu_button

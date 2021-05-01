@@ -9,6 +9,8 @@ class GameLoop:
         self.__event_queue = event_queue
         self.__renderer = renderer
         self.__score_repository = score_repository
+        self.__running = True
+        self.__player = ""
 
     def new_game(self, player):
         self.__player = player
@@ -16,7 +18,7 @@ class GameLoop:
         self.__start()
 
     def __start(self):
-        while True:
+        while self.__running:
             self.__check_counter()
             self.__check_game_over()
             self.__check_score()
@@ -25,7 +27,7 @@ class GameLoop:
             self.__clock.tick(60)
 
     def __finished(self):
-        while True:
+        while self.__running:
             self.__check_events()
             self.__render_game()
 
@@ -50,26 +52,39 @@ class GameLoop:
         for event in self.__event_queue.get():
             if event.type == pygame.QUIT:
                 sys.exit()
-            if event.type == pygame.KEYDOWN:
-                if not self.__level.game_over:
-                    if event.key == pygame.K_LEFT:
-                        self.__level.move_block(-1)
-                    if event.key == pygame.K_RIGHT:
-                        self.__level.move_block(1)
-                    if event.key == pygame.K_UP:
-                        self.__level.rotate_block()
-                    if event.key == pygame.K_DOWN:
-                        self.__level.increase_speed()
-                    if event.key == pygame.K_SPACE:
-                        self.__level.drop_block()
-                if event.key == pygame.K_RETURN:
-                    self.new_game(self.__player)
-            if event.type == pygame.KEYUP:
+            self.__check_key_down_events(event)
+            self.__check_key_up_events(event)
+            self.__check_mouse_click_events(event)
+
+    def __check_key_down_events(self, event):
+        if event.type == pygame.KEYDOWN:
+            if not self.__level.game_over:
+                if event.key == pygame.K_LEFT:
+                    self.__level.move_block(-1)
+                if event.key == pygame.K_RIGHT:
+                    self.__level.move_block(1)
+                if event.key == pygame.K_UP:
+                    self.__level.rotate_block()
                 if event.key == pygame.K_DOWN:
-                    self.__level.decrease_speed()
+                    self.__level.increase_speed()
+                if event.key == pygame.K_SPACE:
+                    self.__level.drop_block()
+            if event.key == pygame.K_RETURN:
+                self.new_game(self.__player)
+
+    def __check_key_up_events(self, event):
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_DOWN:
+                self.__level.decrease_speed()
+
+    def __check_mouse_click_events(self, event):
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if self.__renderer.main_menu_button.collidepoint(event.pos):
+                self.__running = False
 
     def __render_game(self):
         self.__renderer.draw()
 
     def __reset_game(self):
+        self.__running = True
         self.__level.reset_game_state()

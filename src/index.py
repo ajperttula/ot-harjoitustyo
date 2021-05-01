@@ -12,6 +12,7 @@ from gameloop import GameLoop
 from repository.score_repository import score_repository
 from player_name_view import PlayerNameView
 from main_menu import MainMenu
+from high_scores import HighScores
 
 
 SCREEN_HEIGHT = 550
@@ -36,7 +37,8 @@ def main():
 
     name_input = PlayerNameView(ui_renderer, event_queue)
     gameloop = GameLoop(level, clock, event_queue, game_renderer, score_repository)
-    main_menu = MainMenu(ui_renderer, event_queue, name_input, gameloop)
+    high_scores = HighScores(ui_renderer, event_queue)
+    main_menu = MainMenu(ui_renderer, event_queue, name_input, gameloop, high_scores)
 
     main_menu.start()
 
