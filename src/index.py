@@ -6,7 +6,7 @@ from level_elements.score import Score
 from level import Level
 from clock import Clock
 from event import Event
-from renderer import Renderer
+from game_renderer import GameRenderer
 from ui_renderer import UIRenderer
 from gameloop import GameLoop
 from repository.score_repository import score_repository
@@ -31,11 +31,11 @@ def main():
     level = Level(block, grid, score, pace)
     clock = Clock()
     event_queue = Event()
-    renderer = Renderer(display, level)
+    game_renderer = GameRenderer(display, level)
     ui_renderer = UIRenderer(display)
 
     name_input = PlayerNameView(ui_renderer, event_queue)
-    gameloop = GameLoop(level, clock, event_queue, renderer, score_repository)
+    gameloop = GameLoop(level, clock, event_queue, game_renderer, score_repository)
     main_menu = MainMenu(ui_renderer, event_queue, name_input, gameloop)
 
     main_menu.start()

@@ -7,7 +7,7 @@ BG_COLOR = (235, 235, 235)
 TEXT_COLOR = (0, 0, 0)
 
 
-class Renderer:
+class GameRenderer:
     def __init__(self, display, level):
         self.__display = display
         self.__level = level
