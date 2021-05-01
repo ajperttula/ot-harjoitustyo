@@ -31,7 +31,7 @@ class PlayerNameView:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     self.__ready = True
-                if len(self.__player) < 16:
+                if len(self.__player) < 12:
                     self.__player += event.unicode
                 if event.key == pygame.K_BACKSPACE:
                     self.__player = self.__player[:-1]

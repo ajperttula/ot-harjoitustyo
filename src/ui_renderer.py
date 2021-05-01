@@ -31,8 +31,31 @@ class UIRenderer:
         self.__init_changes()
 
     def __draw_score_table(self, scores):
-        title_text = self.__font_small.render("HIGH SCORES", True, TEXT_COLOR)
-        self.__display.blit(title_text, ((self.__display.get_width()-title_text.get_width())/2, 20))
+        title_text = self.__font_small.render("TOP 10 Scores", True, TEXT_COLOR)
+        self.__display.blit(title_text, ((self.__display.get_width()-title_text.get_width())/2, 30))
+
+        rank_text = self.__font_small.render("Rank", True, TEXT_COLOR)
+        self.__display.blit(rank_text, (60, 100))
+
+        player_text = self.__font_small.render("Player", True, TEXT_COLOR)
+        self.__display.blit(player_text, (130, 100))
+
+        score_text = self.__font_small.render("Score", True, TEXT_COLOR)
+        self.__display.blit(score_text, (300, 100))
+
+        pos_y = 100 + rank_text.get_height() + 20
+
+        for result in scores:
+            rank = self.__font_small.render(f"{result[0]}", True, TEXT_COLOR)
+            self.__display.blit(rank, (60, pos_y))
+
+            player = self.__font_small.render(f"{result[1]}", True, TEXT_COLOR)
+            self.__display.blit(player, (130, pos_y))
+
+            score = self.__font_small.render(f"{result[2]}", True, TEXT_COLOR)
+            self.__display.blit(score, (300, pos_y))
+
+            pos_y += rank.get_height()+10
 
     def __draw_main_menu(self):
         main_menu_text = self.__font_small.render("Main menu", True, TEXT_COLOR)

@@ -3,9 +3,10 @@ import pygame
 
 
 class HighScores:
-    def __init__(self, renderer, event_queue):
+    def __init__(self, renderer, event_queue, score_repository):
         self.__renderer = renderer
         self.__event_queue = event_queue
+        self.__score_repository = score_repository
         self.__running = True
 
     def loop(self):
@@ -26,4 +27,5 @@ class HighScores:
                     self.__running = False
 
     def __render(self):
-        self.__renderer.draw_high_scores("d")
+        scores = self.__score_repository.get_high_scores()
+        self.__renderer.draw_high_scores(scores)
