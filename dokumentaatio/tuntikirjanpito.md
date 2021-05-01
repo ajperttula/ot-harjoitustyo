@@ -16,4 +16,5 @@
 | 27.4. | 5    | tietokantatallennuksen ja valikkojen suunnittelua, lisää sekvenssikaavioita, releasen tekeminen |
 | 29.4. | 3    | tietokantatallennuksen toteutus alustava versio |
 | 30.4. | 5    | pelaajan nimen kysyminen, tietokantatallennuksen parannus, päävalikko |
-|   yht | 61   | | 
+|  1.5. | 2    | high scores valikon lisääminen |
+|   yht | 63   | | 
