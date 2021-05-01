@@ -13,16 +13,18 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
 ## Toiminnot
 
 ### Päävalikossa
-- [ ] Pelaaja voi siirtyä pelinäkymään
-- [ ] Pelaaja voi siirtyä tulosnäkymään
+- [x] Pelaaja voi siirtyä pelinäkymään
+- [x] Pelaaja voi siirtyä tulosnäkymään
 - [ ] Pelaaja voi siirtyä asetusvalikkoon
-- [ ] Pelaaja voi sulkea ohjelman
+- [x] Pelaaja voi sulkea ohjelman
+
+### Nimenantonäkymässä
+- [x] Pejaala voi antaa nimensä
 
 ### Pelinäkymässä
-- [x] Pelaaja voi aloittaa uuden pelin
-- [ ] Pelaaja voi siirtyä takaisin päävalikkoon
+- [x] Pelaaja voi aloittaa koska tahansa uuden pelin painamalla ENTER
+- [x] Pelaaja voi siirtyä takaisin päävalikkoon
 - [x] Peli loppuu, kun uudella palikalla ei ole enää tilaa pudota alaspäin
-- [ ] Jos pisteet yltävät top-10 listaan, Pelaaja voi antaa nimensä listattavaksi
   #### Pelin ollessa käynnissä
   - [x] Pelaaja voi kääntää putoavaa palikkaa
   - [x] Pelaaja voi siirtää putoavaa palikkaa pelikentän laidalta toiselle
@@ -31,11 +33,11 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
   - [x] Peli näyttää seuraavana vuorossa olevan palikan
   - [x] Rivin tullessa täyteen rivi katoaa
   - [x] Rivin tullessa täyteen pisteet lisääntyy
-  - [x] 15 pisteen välein pelin tempo kasvaa
+  - [x] Kun rivejä on tuhoutunut 15 kertaa, pelin tempo kasvaa (monta riviä kerralla lasketaan yhdeksi tuhoutumiseksi)
 
 ### Tulosnäkymässä
-- [ ] Pelaaja voi tarkastella huipputuloksia
-- [ ] Pelaaja voi palata takaisin päävalikkoon
+- [x] Pelaaja voi tarkastella huipputuloksia
+- [x] Pelaaja voi palata takaisin päävalikkoon
 
 ### Asetusnäkymässä
 - [ ] Pelaaja voi vaihtaa palikoiden väriteemaa
