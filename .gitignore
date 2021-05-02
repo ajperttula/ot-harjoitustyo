@@ -11,6 +11,7 @@
 /src/__pycache__/
 /src/tests/__pycache__/
 /src/data/sqlite3.exe
+/src/data/scores.db
 .pytest_cache
 __pycache__
 .coverage
