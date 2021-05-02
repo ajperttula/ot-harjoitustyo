@@ -37,4 +37,4 @@ class PlayerName:
                     self.__player = self.__player[:-1]
 
     def __render(self):
-        self.__renderer.draw_name_input(self.__player)
+        self.__renderer.draw("name_input", player_name=self.__player)

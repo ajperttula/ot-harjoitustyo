@@ -28,7 +28,7 @@ class MainMenu:
                     sys.exit()
 
     def __render(self):
-        self.__renderer.draw_menu()
+        self.__renderer.draw("main")
 
     def __new_game(self):
         player = self.__name_input.loop()

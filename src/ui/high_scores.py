@@ -28,4 +28,4 @@ class HighScores:
 
     def __render(self):
         scores = self.__score_repository.get_high_scores()
-        self.__renderer.draw_high_scores(scores)
+        self.__renderer.draw("high_scores", scores=scores)
