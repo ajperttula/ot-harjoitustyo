@@ -17,4 +17,5 @@
 | 29.4. | 3    | tietokantatallennuksen toteutus alustava versio |
 | 30.4. | 5    | pelaajan nimen kysyminen, tietokantatallennuksen parannus, päävalikko |
 |  1.5. | 3    | high scores valikon lisääminen |
-|   yht | 64   | | 
+|  2.5. | 2    | koodin jaottelu hakemistoihin, refaktorointia |
+|   yht | 66   | | 
