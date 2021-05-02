@@ -2,7 +2,7 @@ from os import sys
 import pygame
 
 
-class PlayerNameView:
+class PlayerName:
     def __init__(self, renderer, event_queue):
         self.__renderer = renderer
         self.__event_queue = event_queue

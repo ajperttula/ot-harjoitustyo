@@ -1,18 +1,18 @@
 import pygame
-from level_elements.block import Block
-from level_elements.grid import Grid
-from level_elements.pace import Pace
-from level_elements.score import Score
-from level import Level
-from clock import Clock
-from event import Event
-from game_renderer import GameRenderer
-from ui_renderer import UIRenderer
-from gameloop import GameLoop
+from game_loop.block import Block
+from game_loop.grid import Grid
+from game_loop.pace import Pace
+from game_loop.score import Score
+from game_loop.level import Level
+from game_loop.clock import Clock
+from game_loop.event import Event
+from game_loop.game_loop import GameLoop
+from renderers.game_renderer import GameRenderer
+from renderers.ui_renderer import UIRenderer
 from repository.score_repository import score_repository
-from player_name_view import PlayerNameView
-from main_menu import MainMenu
-from high_scores import HighScores
+from ui.player_name import PlayerName
+from ui.main_menu import MainMenu
+from ui.high_scores import HighScores
 
 
 SCREEN_HEIGHT = 540
@@ -35,10 +35,10 @@ def main():
     game_renderer = GameRenderer(display, level)
     ui_renderer = UIRenderer(display)
 
-    name_input = PlayerNameView(ui_renderer, event_queue)
-    gameloop = GameLoop(level, clock, event_queue, game_renderer, score_repository)
+    name_input = PlayerName(ui_renderer, event_queue)
+    game_loop = GameLoop(level, clock, event_queue, game_renderer, score_repository)
     high_scores = HighScores(ui_renderer, event_queue, score_repository)
-    main_menu = MainMenu(ui_renderer, event_queue, name_input, gameloop, high_scores)
+    main_menu = MainMenu(ui_renderer, event_queue, name_input, game_loop, high_scores)
 
     main_menu.start()
 

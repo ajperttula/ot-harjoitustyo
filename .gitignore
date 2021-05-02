@@ -9,9 +9,8 @@
 /laskarit/viikko2/maksukortti/src/__pycache__/
 /laskarit/viikko2/maksukortti/src/tests/__pycache__/
 /src/__pycache__/
-/src/tests/__pycache__/
-/src/data/sqlite3.exe
-/src/data/scores.db
+/data/sqlite3.exe
+/data/scores.db
 .pytest_cache
 __pycache__
 .coverage

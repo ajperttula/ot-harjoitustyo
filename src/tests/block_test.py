@@ -1,5 +1,5 @@
 import unittest
-from level_elements.block import Block
+from game_loop.block import Block
 
 
 class TestBlock(unittest.TestCase):

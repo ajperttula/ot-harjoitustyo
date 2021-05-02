@@ -1,13 +1,14 @@
 import unittest
-from level import Level
-from level_elements.block import Block
-from level_elements.grid import Grid
-from level_elements.score import Score
+from game_loop.level import Level
+from game_loop.block import Block
+from game_loop.grid import Grid
+from game_loop.score import Score
+from game_loop.pace import Pace
 
 
 class TestLevel(unittest.TestCase):
     def setUp(self):
-        self.level = Level(Block(), Grid(), Score())
+        self.level = Level(Block(), Grid(), Score(), Pace())
         self.level.block.shape = [[1],
                                   [1],
                                   [1],
