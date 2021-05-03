@@ -18,4 +18,5 @@
 | 30.4. | 5    | pelaajan nimen kysyminen, tietokantatallennuksen parannus, päävalikko |
 |  1.5. | 3    | high scores valikon lisääminen |
 |  2.5. | 2    | koodin jaottelu hakemistoihin, refaktorointia |
-|   yht | 66   | | 
+|  3.5. | 4    | refaktorointia, docstring-dokumentointia |
+|   yht | 70   | | 
