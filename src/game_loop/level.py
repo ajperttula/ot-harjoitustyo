@@ -24,33 +24,74 @@ class Level:
         self.__game_over = False
 
     def move_block(self, delta_x: int):
+        """Moves block sideways.
+
+        Block's x position is changed according to delta_x value.
+        Then, a collision check is made by calling block_collides function.
+        If change caused a collision, it is reversed.
+
+        Args:
+            delta_x (int): Describes direction to move (+- 1).
+        """
         self.__block.x_pos += delta_x
 
         if self.__block_collides():
             self.__block.x_pos -= delta_x
 
     def rotate_block(self):
+        """Rotates block clockwise.
+
+        Block's method rotate_clockwise is called.
+        Then, a collision check is made by calling block_collides function.
+        If change caused a collision, it is reversed by rotating the block
+        anticlockwise.
+        """
         self.__block.rotate_clockwise()
 
         if self.__block_collides():
             self.__block.rotate_anticlockwise()
 
-    def lower_block(self):
+    def lower_block(self) -> bool:
+        """Lowers block position by one.
+
+        Block's y position is added by one. Then, a collision check is made
+        by calling block_collides function. If collision occurs, block's position
+        is reversed. Then another check is made to see if game is over.
+        If not, helper methods are called to update grid color, check full rows and
+        reset block position back to initial position.
+
+        Returns:
+            bool: True if block didn't collide, else False.
+        """
         def update_grid():
+            """Calls grid method update_grid.
+            """
             self.__grid.update_grid(self.__block)
 
         def check_for_full_rows():
+            """Gets a count of full rows and adds them to score.
+            """
             count = self.__grid.check_for_full_rows()
             if count:
                 self.__score.add_score(count)
 
-        def game_over():
+        def game_over() -> bool:
+            """Checks if still after reversing the block position, collision occurs.
+
+            This function makes another call to block_collides function to find out
+            if game is over and sets variable game_over to True accordingly.
+
+            Returns:
+                bool: True if collision still occurs, else False.
+            """
             if self.__block_collides():
                 self.__game_over = True
                 return True
             return False
 
         def reset_block_position():
+            """Calls block's reset_position method
+            """
             self.__block.reset_position()
 
         self.__block.y_pos += 1
@@ -64,16 +105,24 @@ class Level:
         return True
 
     def drop_block(self):
+        """Drops block immediately as far down as possible.
+        """
         while self.lower_block():
             continue
 
     def increase_speed(self):
+        """Calls pace method increase_speed
+        """
         self.__pace.increase_speed()
 
     def decrease_speed(self):
+        """Calls pace method decrease_speed
+        """
         self.__pace.decrease_speed()
 
     def reset_game_state(self):
+        """Resets attribute objects and variables to their initial state.
+        """
         self.__game_over = False
         self.__block.reset_position()
         self.__grid.reset_grid()
@@ -83,10 +132,8 @@ class Level:
     def __block_collides(self) -> bool:
         """Checks block collision with grid borders and another blocks.
 
-        
-
         Returns:
-            bool: [description]
+            bool: True if one of the collition checks return True, else False.
         """
         def position_is_block(row: int, col: int) -> bool:
             """Checks if given position in block's shape list has value 1.
