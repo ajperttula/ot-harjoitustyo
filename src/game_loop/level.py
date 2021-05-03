@@ -1,7 +1,24 @@
 class Level:
-    def __init__(self, block, grid, score, pace):
-        self.__grid = grid
+    """Class responsible for handling game play events.
+
+    Attributes:
+        block (Block): Block that falls on the grid.
+        grid (Grid): Gameplay grid.
+        score (Score): Object that keeps track of score.
+        pace (Pace): Object that controls game pace.
+        game_over (bool): States if game is over or not.
+    """
+    def __init__(self, block: "Block", grid: "Grid", score: "Score", pace: "Pace"):
+        """Constructor creates a new level object.
+
+        Args:
+            block (Block): Block object.
+            grid (Grid): Grid object.
+            score (Score): Score object.
+            pace (Pace): Pace object.
+        """
         self.__block = block
+        self.__grid = grid
         self.__score = score
         self.__pace = pace
         self.__game_over = False
@@ -63,20 +80,62 @@ class Level:
         self.__score.reset_score()
         self.__pace.reset_pace()
 
-    def __block_collides(self):
-        def position_is_block(row, col):
+    def __block_collides(self) -> bool:
+        """Checks block collision with grid borders and another blocks.
+
+        
+
+        Returns:
+            bool: [description]
+        """
+        def position_is_block(row: int, col: int) -> bool:
+            """Checks if given position in block's shape list has value 1.
+
+            Args:
+                row (int): Row number in the block's shape list.
+                col (int): Column number in the block's shape list.
+
+            Returns:
+                bool: True if given position is 1, else False.
+            """
             return self.__block.shape[row][col] == 1
 
-        def position_is_occupied(row, col):
+        def position_is_occupied(row: int, col: int) -> bool:
+            """Checks if position that block would occupy next is already occupied.
+
+            Position is occupied if that grid coordinate value is not zero.
+
+            Args:
+                row (int): Row number in the block's shape list.
+                col (int): Column number in the block's shape list.
+
+            Returns:
+                bool: True if position is occupied, else False.
+            """
             return self.__grid.grid[self.__block.y_pos+row][self.__block.x_pos+col] != 0
 
-        def position_is_past_left_border():
+        def position_is_past_left_border() -> bool:
+            """Checks if block's x coordinate is less than zero.
+
+            Returns:
+                bool: True if less than zero, else False.
+            """
             return self.__block.x_pos < 0
 
-        def position_is_past_right_border():
+        def position_is_past_right_border() -> bool:
+            """Checks if block's leftmost coordinate is greater than grid width.
+
+            Returns:
+                bool: True if greater, else False.
+            """
             return self.__block.x_pos + self.__block.width > self.__grid.width
 
-        def position_is_past_floor():
+        def position_is_past_floor() -> bool:
+            """Checks if block coordinate is greater than grid height.
+
+            Returns:
+                bool: True if greater, else False.
+            """
             return self.__block.y_pos + self.__block.height > self.__grid.height
 
         if (position_is_past_left_border() or
