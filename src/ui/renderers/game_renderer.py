@@ -61,17 +61,16 @@ class GameRenderer(Renderer):
         self._display.blit(score, (290, 20))
 
     def __draw_game_over(self):
-        display_height = self._display.get_height()
-        display_width = self._display.get_width()
-        game_over = self._font_big.render("GAME OVER", True, TEXT_COLOR)
-        text_width = game_over.get_width()
-        text_height = game_over.get_height()
-        position = ((display_width-text_width)/2, (display_height-text_height)/2)
-        instruction = self._font_small.render("Press ENTER for new game", True, TEXT_COLOR)
-        position2 = (position[0], position[1]+text_height+10)
+        title = self._font_big.render("GAME OVER", True, TEXT_COLOR)
+        title_position = ((self._display_width-title.get_width())/2,
+                          (self._display_height-title.get_height())/2)
 
-        self._display.blit(game_over, position)
-        self._display.blit(instruction, position2)
+        text = self._font_small.render("Press ENTER for new game", True, TEXT_COLOR)
+        position = ((self._display_width-text.get_width())/2,
+                    title_position[1]+title.get_height()+10)
+
+        self._display.blit(title, title_position)
+        self._display.blit(text, position)
 
     def __draw_rectangle(self, name, row, col, color, border=0):
         if name == "block":

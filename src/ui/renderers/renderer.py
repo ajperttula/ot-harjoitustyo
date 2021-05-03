@@ -8,6 +8,8 @@ TEXT_COLOR = (0, 0, 0)
 class Renderer:
     def __init__(self, display):
         self._display = display
+        self._display_height = display.get_height()
+        self._display_width = display.get_width()
         self._font_small = pygame.font.SysFont("Lucida Console", 20)
         self._font_big = pygame.font.SysFont("Lucida Console", 50)
         self._main_menu_button = self._create_button(290, 480, 120, 40)

@@ -22,11 +22,8 @@ class UIRenderer(Renderer):
         self._init_changes()
 
     def __create_buttons(self):
-        display_height = self._display.get_height()
-        display_width = self._display.get_width()
-
-        self.__new_game_button = self._create_button((display_width-200)/2,
-                                                     (display_height-40)/2,
+        self.__new_game_button = self._create_button((self._display_width-200)/2,
+                                                     (self._display_height-40)/2,
                                                      200,
                                                      40)
 
@@ -46,21 +43,23 @@ class UIRenderer(Renderer):
         self._draw_button(self.__exit_button, "Exit")
 
     def __draw_score_table(self, scores):
-        title_text = self._font_small.render("TOP 10 Scores", True, TEXT_COLOR)
-        self._display.blit(title_text, ((self._display.get_width()-title_text.get_width())/2, 30))
+        title = self._font_small.render("TOP 10 Scores", True, TEXT_COLOR)
+        self._display.blit(title, ((self._display.get_width()-title.get_width())/2, 30))
 
-        rank_text = self._font_small.render("Rank", True, TEXT_COLOR)
-        self._display.blit(rank_text, (60, 100))
+        rank = self._font_small.render("Rank", True, TEXT_COLOR)
+        self._display.blit(rank, (60, 100))
 
-        player_text = self._font_small.render("Player", True, TEXT_COLOR)
-        self._display.blit(player_text, (130, 100))
+        player = self._font_small.render("Player", True, TEXT_COLOR)
+        self._display.blit(player, (130, 100))
 
-        score_text = self._font_small.render("Score", True, TEXT_COLOR)
-        self._display.blit(score_text, (300, 100))
+        score = self._font_small.render("Score", True, TEXT_COLOR)
+        self._display.blit(score, (300, 100))
 
-        pos_y = 100 + rank_text.get_height() + 20
+        pos_y = 100 + rank.get_height()
 
         for result in scores:
+            pos_y += 30
+
             rank = self._font_small.render(f"{result[0]}", True, TEXT_COLOR)
             self._display.blit(rank, (60, pos_y))
 
@@ -70,18 +69,20 @@ class UIRenderer(Renderer):
             score = self._font_small.render(f"{result[2]}", True, TEXT_COLOR)
             self._display.blit(score, (300, pos_y))
 
-            pos_y += rank.get_height()+10
-
     def __draw_text_input(self, player_name):
-        display_height = self._display.get_height()
-        display_width = self._display.get_width()
-        text = self._font_small.render("Player name:", True, TEXT_COLOR)
-        player_name = self._font_small.render(player_name, True, TEXT_COLOR)
-        pos_x, pos_y = ((display_width-text.get_width())/2, (display_height-text.get_height())/2)
-        input_box = pygame.Rect((display_width-200)/2, pos_y+text.get_height()+10, 200, 30)
-        input_text_pos = (input_box.x+5, input_box.y+5)
+        title = self._font_small.render("Player name:", True, TEXT_COLOR)
+        title_position = ((self._display_width-title.get_width())/2,
+                          (self._display_height-title.get_height())/2)
 
-        self._display.blit(text, (pos_x, pos_y))
+        player_name = self._font_small.render(player_name, True, TEXT_COLOR)
+        input_box = pygame.Rect((self._display_width-200)/2,
+                                title_position[1]+title.get_height()+10,
+                                200,
+                                30)
+        input_text_pos = (input_box.x+(input_box.width-player_name.get_width())/2,
+                          input_box.y+(input_box.height-player_name.get_height())/2)
+
+        self._display.blit(title, title_position)
         pygame.draw.rect(self._display,
                          TEXT_COLOR,
                          input_box, 1)
