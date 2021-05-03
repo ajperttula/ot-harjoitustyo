@@ -7,9 +7,9 @@ from game_loop.level import Level
 from game_loop.clock import Clock
 from game_loop.event import Event
 from game_loop.game_loop import GameLoop
-from renderers.game_renderer import GameRenderer
-from renderers.ui_renderer import UIRenderer
 from repository.score_repository import score_repository
+from ui.renderers.game_renderer import GameRenderer
+from ui.renderers.ui_renderer import UIRenderer
 from ui.player_name import PlayerName
 from ui.main_menu import MainMenu
 from ui.high_scores import HighScores

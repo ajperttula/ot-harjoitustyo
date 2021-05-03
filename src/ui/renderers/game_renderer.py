@@ -1,5 +1,5 @@
 import pygame
-from renderers.renderer import Renderer
+from ui.renderers.renderer import Renderer
 
 
 CELL_SIZE = 25

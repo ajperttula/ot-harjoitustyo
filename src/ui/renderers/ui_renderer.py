@@ -1,5 +1,5 @@
 import pygame
-from renderers.renderer import Renderer
+from ui.renderers.renderer import Renderer
 
 
 TEXT_COLOR = (0, 0, 0)
