@@ -18,29 +18,29 @@ class UIRenderer(Renderer):
             self.__draw_text_input(player_name)
         elif page == "high_scores":
             self.__draw_score_table(scores)
-            self._draw_button(self._main_menu_button, "Main menu")
+            self._draw_button(self.main_menu_button, "Main menu")
         self._init_changes()
 
     def __create_buttons(self):
-        self.__new_game_button = self._create_button((self._display_width-200)/2,
-                                                     (self._display_height-40)/2,
-                                                     200,
-                                                     40)
+        self.new_game_button = self._create_button((self._display_width-200)/2,
+                                                   (self._display_height-40)/2,
+                                                   200,
+                                                   40)
 
-        self.__high_scores_button = self._create_button(self.__new_game_button.x,
-                                                        self.__new_game_button.y+50,
-                                                        200,
-                                                        40)
+        self.high_scores_button = self._create_button(self.new_game_button.x,
+                                                      self.new_game_button.y+50,
+                                                      200,
+                                                      40)
 
-        self.__exit_button = self._create_button(self.__new_game_button.x,
-                                                 self.__high_scores_button.y+50,
-                                                 200,
-                                                 40)
+        self.exit_button = self._create_button(self.new_game_button.x,
+                                               self.high_scores_button.y+50,
+                                               200,
+                                               40)
 
     def __draw_buttons(self):
-        self._draw_button(self.__new_game_button, "New game")
-        self._draw_button(self.__high_scores_button, "High scores")
-        self._draw_button(self.__exit_button, "Exit")
+        self._draw_button(self.new_game_button, "New game")
+        self._draw_button(self.high_scores_button, "High scores")
+        self._draw_button(self.exit_button, "Exit")
 
     def __draw_score_table(self, scores):
         title = self._font_small.render("TOP 10 Scores", True, TEXT_COLOR)
@@ -87,19 +87,3 @@ class UIRenderer(Renderer):
                          TEXT_COLOR,
                          input_box, 1)
         self._display.blit(player_name, input_text_pos)
-
-    @property
-    def new_game_button(self):
-        return self.__new_game_button
-
-    @property
-    def high_scores_button(self):
-        return self.__high_scores_button
-
-    @property
-    def exit_button(self):
-        return self.__exit_button
-
-    @property
-    def main_menu_button(self):
-        return self._main_menu_button

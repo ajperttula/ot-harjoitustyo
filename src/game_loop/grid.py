@@ -2,19 +2,22 @@ class Grid:
     """Class representing a Tetris gameplay grid.
 
     Attributes:
-        grid: Gameplay grid represented as a 2-dimentional list filled with zeros.
-        width: Length of the grid list's nested list.
-        height: Length of the grid list.
-        color: Color of the grid borders as RGB-value.
+        grid (list): Gameplay grid represented as a 2-dimentional list filled with zeros.
+        width (int): Length of the grid list's nested list.
+        height (int): Length of the grid list.
+        color (tuple): Color of the grid borders as RGB-value.
     """
     COLOR = (125, 125, 125)
     GRID_HEIGHT = 20
     GRID_WIDTH = 10
 
     def __init__(self):
-        """Constructor creates a new grid object and calls method to reset grid attributes.
+        """Constructor creates a new grid object and sets grid attributes.
         """
-        self.reset_grid()
+        self.grid = self.__create_grid()
+        self.color = Grid.COLOR
+        self.width = Grid.GRID_WIDTH
+        self.height = Grid.GRID_HEIGHT
 
     def __create_grid(self) -> list:
         """Creates a 2-dimensional list based on GRID_WIDTH and GRID_HEIGHT values.
@@ -53,10 +56,10 @@ class Grid:
                 row (int): Row number on the block's shape list.
                 col (int): Column number on the block's shape list.
             """
-            self.__grid[block.y_pos+row][block.x_pos+col] = block.color
+            self.grid[block.y_pos+row][block.x_pos+col] = block.color
 
-        for row in range(block.height):
-            for col in range(block.width):
+        for row in range(block.height()):
+            for col in range(block.width()):
                 if position_is_block(row, col):
                     color_position(row, col)
 
@@ -78,7 +81,7 @@ class Grid:
             Returns:
                 bool: True if row doesn't have zeros in it, else False
             """
-            return self.__grid[row].count(0) == 0
+            return self.grid[row].count(0) == 0
 
         def delete_row(row: int):
             """Deletes full rows.
@@ -89,8 +92,8 @@ class Grid:
             Args:
                 row (int): Row number in the grid.
             """
-            self.__grid.pop(row)
-            self.__grid.insert(0, [0 for col in range(self.width)])
+            self.grid.pop(row)
+            self.grid.insert(0, [0 for col in range(self.width)])
 
         count = 0
         for row in range(self.height):
@@ -100,23 +103,6 @@ class Grid:
         return count
 
     def reset_grid(self):
-        """Resets the grid full of zeros and sets grid color.
+        """Resets the grid full of zeros.
         """
-        self.__grid = self.__create_grid()
-        self.__color = Grid.COLOR
-
-    @property
-    def grid(self):
-        return self.__grid
-
-    @property
-    def width(self):
-        return len(self.__grid[0])
-
-    @property
-    def height(self):
-        return len(self.__grid)
-
-    @property
-    def color(self):
-        return self.__color
+        self.grid = self.__create_grid()

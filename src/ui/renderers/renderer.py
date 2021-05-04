@@ -12,7 +12,7 @@ class Renderer:
         self._display_width = display.get_width()
         self._font_small = pygame.font.SysFont("Lucida Console", 20)
         self._font_big = pygame.font.SysFont("Lucida Console", 50)
-        self._main_menu_button = self._create_button(290, 480, 120, 40)
+        self.main_menu_button = self._create_button(290, 480, 120, 40)
 
     def _draw_background(self):
         self._display.fill(BG_COLOR)

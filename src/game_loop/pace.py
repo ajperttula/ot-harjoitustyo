@@ -18,9 +18,12 @@ class Pace:
             Boolean value for momentarily speeding up the game pace.
     """
     def __init__(self):
-        """Constructor creates a new Pace object and calls reset_pace method to set attributes.
+        """Constructor creates a new Pace object and sets attributes.
         """
-        self.reset_pace()
+        self.__counter = 0
+        self.__integer = 0
+        self.__difficulty = 1
+        self.__go_fast = False
 
     def check_counter(self) -> bool:
         """Calls increase_counter and compares counter and integer values.

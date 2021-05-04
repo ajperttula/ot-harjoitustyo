@@ -17,11 +17,11 @@ class Level:
             score (Score): Score object.
             pace (Pace): Pace object.
         """
-        self.__block = block
-        self.__grid = grid
-        self.__score = score
-        self.__pace = pace
-        self.__game_over = False
+        self.block = block
+        self.grid = grid
+        self.score = score
+        self.pace = pace
+        self.game_over = False
 
     def move_block(self, delta_x: int):
         """Moves block sideways.
@@ -33,10 +33,10 @@ class Level:
         Args:
             delta_x (int): Describes direction to move (+- 1).
         """
-        self.__block.x_pos += delta_x
+        self.block.x_pos += delta_x
 
         if self.__block_collides():
-            self.__block.x_pos -= delta_x
+            self.block.x_pos -= delta_x
 
     def rotate_block(self):
         """Rotates block clockwise.
@@ -46,10 +46,10 @@ class Level:
         If change caused a collision, it is reversed by rotating the block
         anticlockwise.
         """
-        self.__block.rotate_clockwise()
+        self.block.rotate_clockwise()
 
         if self.__block_collides():
-            self.__block.rotate_anticlockwise()
+            self.block.rotate_anticlockwise()
 
     def lower_block(self) -> bool:
         """Lowers block position by one.
@@ -66,14 +66,14 @@ class Level:
         def update_grid():
             """Calls grid method update_grid.
             """
-            self.__grid.update_grid(self.__block)
+            self.grid.update_grid(self.block)
 
         def check_for_full_rows():
             """Gets a count of full rows and adds them to score.
             """
-            count = self.__grid.check_for_full_rows()
+            count = self.grid.check_for_full_rows()
             if count:
-                self.__score.add_score(count)
+                self.score.add_score(count)
 
         def game_over() -> bool:
             """Checks if still after reversing the block position, collision occurs.
@@ -85,18 +85,18 @@ class Level:
                 bool: True if collision still occurs, else False.
             """
             if self.__block_collides():
-                self.__game_over = True
+                self.game_over = True
                 return True
             return False
 
         def reset_block_position():
             """Calls block's reset_position method
             """
-            self.__block.reset_position()
+            self.block.reset_position()
 
-        self.__block.y_pos += 1
+        self.block.y_pos += 1
         if self.__block_collides():
-            self.__block.y_pos -= 1
+            self.block.y_pos -= 1
             if not game_over():
                 update_grid()
                 check_for_full_rows()
@@ -111,23 +111,23 @@ class Level:
             continue
 
     def increase_speed(self):
-        """Calls pace method increase_speed
+        """Calls pace method increase_speed.
         """
-        self.__pace.increase_speed()
+        self.pace.increase_speed()
 
     def decrease_speed(self):
-        """Calls pace method decrease_speed
+        """Calls pace method decrease_speed.
         """
-        self.__pace.decrease_speed()
+        self.pace.decrease_speed()
 
     def reset_game_state(self):
         """Resets attribute objects and variables to their initial state.
         """
-        self.__game_over = False
-        self.__block.reset_position()
-        self.__grid.reset_grid()
-        self.__score.reset_score()
-        self.__pace.reset_pace()
+        self.game_over = False
+        self.block.reset_position()
+        self.grid.reset_grid()
+        self.score.reset_score()
+        self.pace.reset_pace()
 
     def __block_collides(self) -> bool:
         """Checks block collision with grid borders and another blocks.
@@ -145,7 +145,7 @@ class Level:
             Returns:
                 bool: True if given position is 1, else False.
             """
-            return self.__block.shape[row][col] == 1
+            return self.block.shape[row][col] == 1
 
         def position_is_occupied(row: int, col: int) -> bool:
             """Checks if position that block would occupy next is already occupied.
@@ -159,7 +159,7 @@ class Level:
             Returns:
                 bool: True if position is occupied, else False.
             """
-            return self.__grid.grid[self.__block.y_pos+row][self.__block.x_pos+col] != 0
+            return self.grid.grid[self.block.y_pos+row][self.block.x_pos+col] != 0
 
         def position_is_past_left_border() -> bool:
             """Checks if block's x coordinate is less than zero.
@@ -167,7 +167,7 @@ class Level:
             Returns:
                 bool: True if less than zero, else False.
             """
-            return self.__block.x_pos < 0
+            return self.block.x_pos < 0
 
         def position_is_past_right_border() -> bool:
             """Checks if block's leftmost coordinate is greater than grid width.
@@ -175,7 +175,7 @@ class Level:
             Returns:
                 bool: True if greater, else False.
             """
-            return self.__block.x_pos + self.__block.width > self.__grid.width
+            return self.block.x_pos + self.block.width() > self.grid.width
 
         def position_is_past_floor() -> bool:
             """Checks if block coordinate is greater than grid height.
@@ -183,35 +183,15 @@ class Level:
             Returns:
                 bool: True if greater, else False.
             """
-            return self.__block.y_pos + self.__block.height > self.__grid.height
+            return self.block.y_pos + self.block.height() > self.grid.height
 
         if (position_is_past_left_border() or
             position_is_past_right_border() or
                 position_is_past_floor()):
             return True
 
-        for row in range(self.__block.height):
-            for col in range(self.__block.width):
+        for row in range(self.block.height()):
+            for col in range(self.block.width()):
                 if position_is_block(row, col) and position_is_occupied(row, col):
                     return True
         return False
-
-    @property
-    def game_over(self):
-        return self.__game_over
-
-    @property
-    def block(self):
-        return self.__block
-
-    @property
-    def grid(self):
-        return self.__grid
-
-    @property
-    def score(self):
-        return self.__score
-
-    @property
-    def pace(self):
-        return self.__pace

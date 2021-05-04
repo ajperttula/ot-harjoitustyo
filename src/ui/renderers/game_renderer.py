@@ -18,7 +18,7 @@ class GameRenderer(Renderer):
         self.__draw_next_block()
         self.__draw_grid()
         self.__draw_score()
-        self._draw_button(self._main_menu_button, "Main menu")
+        self._draw_button(self.main_menu_button, "Main menu")
         if self.__level.game_over:
             self.__draw_game_over()
         self._init_changes()
@@ -27,8 +27,8 @@ class GameRenderer(Renderer):
         def position_is_block(row, col):
             return self.__level.block.shape[row][col] == 1
 
-        for row in range(self.__level.block.height):
-            for col in range(self.__level.block.width):
+        for row in range(self.__level.block.height()):
+            for col in range(self.__level.block.width()):
                 if position_is_block(row, col):
                     self.__draw_rectangle("block", row, col, self.__level.block.color)
 
@@ -39,8 +39,8 @@ class GameRenderer(Renderer):
         text = self._font_small.render("next:", True, TEXT_COLOR)
         self._display.blit(text, (290, 100))
 
-        for row in range(self.__level.block.next_height):
-            for col in range(self.__level.block.next_width):
+        for row in range(self.__level.block.next_height()):
+            for col in range(self.__level.block.next_width()):
                 if position_is_block(row, col):
                     self.__draw_rectangle("next_block", row, col, self.__level.block.next_color)
                     self.__draw_rectangle("next_block", row, col, self.__level.grid.color, 1)
@@ -89,7 +89,3 @@ class GameRenderer(Renderer):
                          color,
                          pygame.Rect(x_pos, y_pos, width, height),
                          border)
-
-    @property
-    def main_menu_button(self):
-        return self._main_menu_button

@@ -12,7 +12,7 @@ class Score:
     def __init__(self):
         """Constructor creates a new Score object
         """
-        self.__score = 0
+        self.score = 0
         self.__counter = 0
 
     def add_score(self, points: int):
@@ -21,7 +21,7 @@ class Score:
         Args:
             points (int): Number of full rows deleted.
         """
-        self.__score += points
+        self.score += points
         self.__increase_counter()
 
     def __increase_counter(self):
@@ -51,9 +51,5 @@ class Score:
     def reset_score(self):
         """Resets score and counter values to zero.
         """
-        self.__score = 0
+        self.score = 0
         self.__counter = 0
-
-    @property
-    def score(self):
-        return self.__score
