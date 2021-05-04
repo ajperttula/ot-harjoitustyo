@@ -7,10 +7,10 @@ class PlayerName:
         self.__renderer = renderer
         self.__event_queue = event_queue
         self.__player = ""
-        self.__ready = False
+        self.__running = True
 
     def loop(self):
-        while not self.__ready:
+        while self.__running:
             self.__check_events()
             self.__render()
         return self.__player_name()
@@ -22,7 +22,7 @@ class PlayerName:
 
     def __reset_variables(self):
         self.__player = ""
-        self.__ready = False
+        self.__running = True
 
     def __check_events(self):
         for event in self.__event_queue.get():
@@ -30,7 +30,7 @@ class PlayerName:
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
-                    self.__ready = True
+                    self.__running = False
                 if len(self.__player) < 12:
                     self.__player += event.unicode
                 if event.key == pygame.K_BACKSPACE:

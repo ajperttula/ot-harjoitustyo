@@ -106,3 +106,9 @@ class Grid:
         """Resets the grid full of zeros.
         """
         self.grid = self.__create_grid()
+
+    def __getitem__(self, index: int):
+        return self.grid[index]
+
+    def __setitem__(self, index: int, value: list):
+        self.grid[index] = value

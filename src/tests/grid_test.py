@@ -28,7 +28,7 @@ class TestGrid(unittest.TestCase):
         for row in range(2):
             colored.append([])
             for col in range(4, 6):
-                pos = self.grid.grid[row][col]
+                pos = self.grid[row][col]
                 colored[row].append(pos)
 
         color = block.color
@@ -38,20 +38,20 @@ class TestGrid(unittest.TestCase):
         self.assertEqual(colored, assumed)
 
     def test_check_for_full_rows_deletes_full_row(self):
-        self.grid.grid[0] = [1 for col in range(self.grid.width)]
+        self.grid[0] = [1 for col in range(self.grid.width)]
         self.grid.check_for_full_rows()
         assumed = [0 for col in range(self.grid.width)]
         self.assertEqual(self.grid.grid[0], assumed)
 
     def test_check_for_full_rows_deletes_multiple_full_rows(self):
         for i in range(2):
-            self.grid.grid[i] = [1 for col in range(self.grid.width)]
+            self.grid[i] = [1 for col in range(self.grid.width)]
         self.grid.check_for_full_rows()
         assumed = [[0 for col in range(self.grid.width)] for row in range(2)]
-        self.assertEqual([self.grid.grid[0], self.grid.grid[1]], assumed)
+        self.assertEqual([self.grid[0], self.grid[1]], assumed)
 
     def test_check_for_full_rows_doesnt_delete_rows_that_are_not_full(self):
-        self.grid.grid[0] = [0, 1, 1, 0, 1, 1, 0, 0, 0, 1]
+        self.grid[0] = [0, 1, 1, 0, 1, 1, 0, 0, 0, 1]
         self.grid.check_for_full_rows()
         assumed = [0, 1, 1, 0, 1, 1, 0, 0, 0, 1]
-        self.assertEqual(self.grid.grid[0], assumed)
+        self.assertEqual(self.grid[0], assumed)

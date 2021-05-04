@@ -159,7 +159,7 @@ class Level:
             Returns:
                 bool: True if position is occupied, else False.
             """
-            return self.grid.grid[self.block.y_pos+row][self.block.x_pos+col] != 0
+            return self.grid[self.block.y_pos+row][self.block.x_pos+col] != 0
 
         def position_is_past_left_border() -> bool:
             """Checks if block's x coordinate is less than zero.
