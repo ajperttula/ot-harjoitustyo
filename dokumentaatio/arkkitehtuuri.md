@@ -1,5 +1,25 @@
 # Pelin arkkitehtuurikuvaukset
 
+## Pelin rakenne
+
+
+<img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/pakkauskaavio.png">
+
+Kokonaisuus koostuu kolmesta kerroksesta: käyttöliittymä, sovelluslogiikka sekä tiedon pysyväistallennus.
+
+### Käyttöliittymä
+Käyttöliittymä on jaoteltu omiin luokkiin näkymien perusteella. Jokainen näkymä käyttää lisäksi UIRenderer luokkaa näytön piirtämiseen. Tulosnäkymä hyödyntää lisäksi ScoreRepository luokkaa tulosten hakemiseen tietokannasta. Käyttöliittymä koostuu seuraavista näkymistä:
+
+- Päävalikko
+- Tulosvalikko
+- Nimenantovalikko
+
+### Sovelluslogiikka
+Sovelluslogiikan rungon muodostaa luokka GameLoop. Hakemisto game_loop sisältää kaikki GameLoopin tarvitsemat luokat. Lisäksi GameLoop hyödyntää GameRenderer luokkaa pelinäkymän piirtämiseen.
+
+### Pysyväistallennus
+Pelin tulosten tallentamisesta huolehtii luokka ScoreRepository, joka tallentaa pelaajan nimen ja pelin tuloksen SQLite tietokantaan.
+
 ## Luokkakaaviot
 
 <img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Luokkakaavio.png">
