@@ -6,6 +6,8 @@ Lataa uusin release [tästä](https://github.com/ajperttula/ot-harjoitustyo/arch
 
 ## Dokumentaatio
 
+[Käyttöohje](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 [Vaatimusmäärittely](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 [Tuntikirjanpito](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
