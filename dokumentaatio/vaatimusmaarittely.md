@@ -34,6 +34,8 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat itse pelin�
   - [x] Rivin tullessa täyteen rivi katoaa
   - [x] Rivin tullessa täyteen pisteet lisääntyy
   - [x] Kun rivejä on tuhoutunut 15 kertaa, pelin tempo kasvaa (monta riviä kerralla lasketaan yhdeksi tuhoutumiseksi)
+  #### Pelin loputtua
+  - [x] Jos pelaaja sai pisteitä, nimi ja pisteet tallennetaan tietokantaan 
 
 ### Tulosnäkymässä
 - [x] Pelaaja voi tarkastella huipputuloksia
