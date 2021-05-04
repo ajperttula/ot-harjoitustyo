@@ -31,10 +31,10 @@ class PlayerName:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     self.__running = False
-                if len(self.__player) < 12:
-                    self.__player += event.unicode
-                if event.key == pygame.K_BACKSPACE:
+                elif event.key == pygame.K_BACKSPACE:
                     self.__player = self.__player[:-1]
+                elif len(self.__player) < 12:
+                    self.__player += event.unicode
 
     def __render(self):
         self.__renderer.draw("name_input", player_name=self.__player)
