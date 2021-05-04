@@ -19,4 +19,5 @@
 |  1.5. | 3    | high scores valikon lisääminen |
 |  2.5. | 2    | koodin jaottelu hakemistoihin, refaktorointia |
 |  3.5. | 4    | refaktorointia, docstring-dokumentointia |
-|   yht | 70   | | 
+|  4.5. | 7    | lisää docstring-dokumentointia, käyttöohjeen luominen, luokkakaavion päivitys, sekvenssikaavioiden päivitys, arkkitehtuurikuvauksen päivitys, lisää testejä |
+|   yht | 77   | | 
