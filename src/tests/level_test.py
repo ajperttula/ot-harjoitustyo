@@ -36,14 +36,14 @@ class TestLevel(unittest.TestCase):
         for i in range(15):
             self.level.move_block(1)
         new_x = self.level.block.x_pos
-        width = self.level.block.width
+        width = self.level.block.width()
         grid_width = self.level.grid.width
         self.assertEqual(new_x+width, grid_width)
 
     def test_cannot_move_block_if_touching_another_block(self):
         # initial block coordinates are (0, 4)
         # set coordinate (0, 5) occupied
-        self.level._Level__grid.grid[0][5] = 1
+        self.level.grid.grid[0][5] = 1
         old_x = self.level.block.x_pos
         self.level.move_block(1)
         new_x = self.level.block.x_pos
@@ -65,14 +65,14 @@ class TestLevel(unittest.TestCase):
     def test_cannot_rotate_block_if_rotation_would_cause_collision_with_another_block(self):
         # initial block coordinates are (0, 4)
         # set coordinate (0, 5) occupied
-        self.level._Level__grid.grid[0][5] = 1
+        self.level.grid.grid[0][5] = 1
         old_shape = self.level.block.shape
         self.level.rotate_block()
         new_shape = self.level.block.shape
         self.assertEqual(new_shape, old_shape)
 
     def test_reset_game_state_sets_game_over_false(self):
-        self.level._Level__game_over = True
+        self.level.game_over = True
         self.level.reset_game_state()
         self.assertFalse(self.level.game_over)
 
