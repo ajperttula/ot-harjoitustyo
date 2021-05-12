@@ -13,6 +13,20 @@ Alusta sen jälkeen tietokantayhteys komennolla
 poetry run invoke build
 ```
 
+## Asetusten muuttaminen
+
+Voit muokata pisteiden tallennukseen käytetyn tietokannan nimeä sekä pelin värejä muokkaamalla juurihakemiston .env tiedostoa. Väri tulee antaa heksadesimaaliformaatissa. https://www.rgbtohex.net/
+```bash
+DATABASE_FILENAME=scores.db
+BG_COLOR=#EBEBEB
+TEXT_COLOR=#000000
+BUTTON_COLOR=#FF0000
+GRID_COLOR=#7D7D7D
+BLOCK_COLOR_1=#FF0000
+BLOCK_COLOR_2=#00FF00
+BLOCK_COLOR_3=#0000FF
+```
+
 ## Pelin käynnistys
 
 Voit nyt käynnistää pelin komennolla
@@ -29,11 +43,11 @@ Voit aloittaa uuden pelin painamalla __New game__, tarkastella huipputuloksia pa
 ![](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/paavalikko.png)
 
 ### Tulosvalikko
-Täällä näet Top 10 tulokset. Jos kahdella pelaajalla on sama tulos, heilä jaettu sijoitus rankingissa. Pääset takaisin päävalikkoon painamalla __Main menu__.<br><br>
+Täällä näet Top 10 tulokset. Jos kahdella pelaajalla on sama tulos, heillä on jaettu sijoitus rankingissa. Pääset takaisin päävalikkoon painamalla __Main menu__.<br><br>
 ![](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/tulosvalikko.png)
 
 ### Nimenanto
-Kun aloitat uuden pelin, voit antaa nimesi. Jos et anna nimeä ja pääset tuloslistalle, siellä näytetään vain tulos ilman nimeä. Pääset jatkamaan peliin painamalla __ENTER__.<br><br>
+Kun aloitat uuden pelin, voit antaa nimesi. Jos et anna nimeä ja pääset tuloslistalle, tuloksesi näytetään ilman nimeä. Pääset jatkamaan peliin painamalla __ENTER__.<br><br>
 ![](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/nimivalikko.png)
 
 ### Pelinäkymä
