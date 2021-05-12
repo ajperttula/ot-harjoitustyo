@@ -22,8 +22,11 @@ class GameRenderer(Renderer):
         super().__init__(display)
         self.__level = level
 
-    def draw(self):
+    def draw(self, game_over):
         """Draws the gameplay view.
+
+        Args:
+            game_over (bool): States if game is over or not.
         """
         self._draw_background()
         self.__draw_block()
@@ -31,7 +34,7 @@ class GameRenderer(Renderer):
         self.__draw_grid()
         self.__draw_score()
         self._draw_button(self.main_menu_button, "Main menu")
-        if self.__level.game_over:
+        if game_over:
             self.__draw_game_over()
         self._init_changes()
 

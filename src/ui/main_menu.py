@@ -8,7 +8,7 @@ class MainMenu:
     Attributes:
         renderer: Does the actula drawing.
         event_queue: Handles user events.
-        name_input: Playr name input view.
+        name_input: Player name input view.
         gameloop: Gameloop view.
         high_scores: High scores view.
     """
@@ -30,7 +30,7 @@ class MainMenu:
         self.__high_scores = high_scores
 
     def start(self):
-        """Checks user events and draws the screen in infinate loop.
+        """Checks user events and draws the screen in infinite loop.
         """
         while True:
             self.__check_events()

@@ -13,6 +13,9 @@ class GameLoop:
         event_queue (Event): Handles user events.
         renderer (GameRenderer): Draws the game display.
         score_repository (ScoreRepository): Handles communication with score database.
+        running (bool): States if loop is running.
+        game_over (bool): States if game is over.
+        player (str): Player name given by the user.
     """
     def __init__(self, level: "Level", clock: "Clock", event_queue: "Event",
                  renderer: "GameRenderer", score_repository: "ScoreRepository"):
@@ -31,6 +34,7 @@ class GameLoop:
         self.__renderer = renderer
         self.__score_repository = score_repository
         self.__running = True
+        self.__game_over = False
         self.__player = ""
 
     def new_game(self, player: str):
@@ -52,8 +56,8 @@ class GameLoop:
         """Checks user inputs, game state and draws the display.
         """
         while self.__running:
-            self.__check_counter()
             self.__check_game_over()
+            self.__check_counter()
             self.__check_score()
             self.__check_events()
             self.__render_game()
@@ -72,7 +76,8 @@ class GameLoop:
         If game is over, score and player name are stored and
         finished loop is initiated.
         """
-        if self.__level.game_over:
+        if self.__level.block_collides():
+            self.__game_over = True
             self.__save_score()
             self.__finished()
 
@@ -112,7 +117,7 @@ class GameLoop:
             event: Single user event, like key press etc.
         """
         if event.type == pygame.KEYDOWN:
-            if not self.__level.game_over:
+            if not self.__game_over:
                 if event.key == pygame.K_LEFT:
                     self.__level.move_block(-1)
                 if event.key == pygame.K_RIGHT:
@@ -149,10 +154,11 @@ class GameLoop:
     def __render_game(self):
         """Calls renderer to draw current game state.
         """
-        self.__renderer.draw()
+        self.__renderer.draw(self.__game_over)
 
     def __reset_game(self):
-        """Resets game running and calls level to reset it's elements.
+        """Resets running and game over and calls level to reset it's elements.
         """
         self.__running = True
+        self.__game_over = False
         self.__level.reset_game_state()
