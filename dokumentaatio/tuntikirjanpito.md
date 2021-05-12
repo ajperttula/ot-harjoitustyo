@@ -21,4 +21,5 @@
 |  3.5. | 4    | refaktorointia, docstring-dokumentointia |
 |  4.5. | 7    | lisää docstring-dokumentointia, käyttöohjeen luominen, luokkakaavion päivitys, sekvenssikaavioiden päivitys, arkkitehtuurikuvauksen päivitys, lisää testejä |
 |  11.5. | 1    | docstring-dokumentointia |
-|   yht | 78   | | 
+|  12.5. | 6    | docstring-dokumentointia, ympäristömuuttujat käyttöön, sekvenssikaavioita |
+|   yht | 84   | | 
