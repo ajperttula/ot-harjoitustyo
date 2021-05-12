@@ -8,4 +8,9 @@ connection.isolation_level = None
 
 
 def get_connection():
+    """Returns SQLite database connections
+
+    Returns:
+        connection: SQLite database connection
+    """
     return connection
