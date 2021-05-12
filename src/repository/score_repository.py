@@ -35,5 +35,11 @@ class ScoreRepository:
         result = self.__database.execute(sql).fetchall()
         return result
 
+    def delete_data(self):
+        """Empties scores table.
+        """
+        sql = "DELETE FROM scores"
+        self.__database.execute(sql)
+
 
 score_repository = ScoreRepository(get_connection())
