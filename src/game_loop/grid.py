@@ -1,3 +1,6 @@
+from config import GRID_WIDTH, GRID_HEIGHT, GRID_COLOR
+
+
 class Grid:
     """Class representing a Tetris gameplay grid.
 
@@ -5,19 +8,15 @@ class Grid:
         grid (list): Gameplay grid represented as a 2-dimentional list filled with zeros.
         width (int): Length of the grid list's nested list.
         height (int): Length of the grid list.
-        color (tuple): Color of the grid borders as RGB-value.
+        color (str): Color of the grid borders as hex-value.
     """
-    COLOR = (125, 125, 125)
-    GRID_HEIGHT = 20
-    GRID_WIDTH = 10
-
     def __init__(self):
         """Constructor creates a new grid object and sets grid attributes.
         """
+        self.width = GRID_WIDTH
+        self.height = GRID_HEIGHT
+        self.color = GRID_COLOR
         self.grid = self.__create_grid()
-        self.color = Grid.COLOR
-        self.width = Grid.GRID_WIDTH
-        self.height = Grid.GRID_HEIGHT
 
     def __create_grid(self) -> list:
         """Creates a 2-dimensional list based on GRID_WIDTH and GRID_HEIGHT values.
@@ -25,7 +24,7 @@ class Grid:
         Returns:
             list: 2-dimentional list full of zeros.
         """
-        return [[0 for col in range(Grid.GRID_WIDTH)] for row in range(Grid.GRID_HEIGHT)]
+        return [[0 for col in range(self.width)] for row in range(self.height)]
 
     def update_grid(self, block: "Block"):
         """Updates grid coordinates with block color.
@@ -108,7 +107,27 @@ class Grid:
         self.grid = self.__create_grid()
 
     def __getitem__(self, index: int):
+        """Enables referring to grid coordinates without 'grid' prefix.
+
+        If Grid is called only with one index e.g. grid[0], this function
+        returns the first row of the grid (list).
+
+        If Grid is called with two indexes e.g. grid[0][0], this function
+        returns the content of the first column on the first row.
+
+        Args:
+            index (int): Determines which index to return.
+
+        Returns:
+            (int/str/list): Grid's content on index.
+        """
         return self.grid[index]
 
-    def __setitem__(self, index: int, value: list):
+    def __setitem__(self, index: int, value):
+        """Enables changing grid values without 'grid' prefix.
+
+        Args:
+            index (int): Determines which index to change.
+            value (int/str/list): Content to save on index.
+        """
         self.grid[index] = value

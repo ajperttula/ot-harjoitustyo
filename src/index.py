@@ -13,10 +13,7 @@ from ui.renderers.ui_renderer import UIRenderer
 from ui.player_name import PlayerName
 from ui.main_menu import MainMenu
 from ui.high_scores import HighScores
-
-
-SCREEN_HEIGHT = 540
-SCREEN_WIDTH = 430
+from config import SCREEN_WIDTH, SCREEN_HEIGHT
 
 
 def main():

@@ -1,4 +1,5 @@
 from random import randint
+from config import BLOCK_COLOR_1, BLOCK_COLOR_2, BLOCK_COLOR_3
 
 
 class Block:
@@ -38,7 +39,7 @@ class Block:
               [[1, 1],
                [1, 1]]]
 
-    COLORS = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+    COLORS = [BLOCK_COLOR_1, BLOCK_COLOR_2, BLOCK_COLOR_3]
 
     def __init__(self):
         """Constructor creates a new Block object.

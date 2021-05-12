@@ -8,6 +8,7 @@ authors = ["Antti Perttula <anttiperttula@outlook.com>"]
 python = "^3.6"
 pygame = "^2.0.1"
 invoke = "^1.5.0"
+python-dotenv = "^0.17.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.2"

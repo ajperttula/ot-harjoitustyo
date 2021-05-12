@@ -1,8 +1,6 @@
 import pygame
 from ui.renderers.renderer import Renderer
-
-
-TEXT_COLOR = (0, 0, 0)
+from config import TEXT_COLOR
 
 
 class UIRenderer(Renderer):

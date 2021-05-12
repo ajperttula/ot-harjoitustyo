@@ -1,10 +1,6 @@
 import pygame
 from ui.renderers.renderer import Renderer
-
-
-CELL_SIZE = 25
-CORNER = 20
-TEXT_COLOR = (0, 0, 0)
+from config import CELL_SIZE, CORNER, TEXT_COLOR
 
 
 class GameRenderer(Renderer):

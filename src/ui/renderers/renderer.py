@@ -1,8 +1,5 @@
 import pygame
-
-
-BG_COLOR = (235, 235, 235)
-TEXT_COLOR = (0, 0, 0)
+from config import BG_COLOR, TEXT_COLOR, BUTTON_COLOR
 
 
 class Renderer:
@@ -64,7 +61,7 @@ class Renderer:
         """
         text = self._font_small.render(text, True, TEXT_COLOR)
         pygame.draw.rect(self._display,
-                         (255, 0, 0),
+                         BUTTON_COLOR,
                          button)
         text_width = text.get_width()
         text_height = text.get_height()
