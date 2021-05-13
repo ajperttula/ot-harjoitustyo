@@ -41,19 +41,19 @@ Metodi start pyörii silmukassa, kunnes game over tilanne aiheuttaa siirtymisen 
 5. piirrä kuva näytölle __render_game()
 6. kutsu clock oliota, joka ajastaa silmukan pyörimään 60 kertaa sekunnissa __clock.tick(60)
 
-Alla kuvattuna tilanne, jossa peli todetaan päättyneeksi.
+__Alla kuvattuna tilanne, jossa peli todetaan päättyneeksi.__
 
 <img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_peli_ohi_tarkistus.png">
 
 Jos palikan todetaan törmänneen jo ennen kuin se on liikkunut alaspäin, asetetaan totuusarvomuuttuja game_over arvoon True ja kutsutaan sisäistä metodia __save_score(), joka puolestaan kutsuu ScoreRepository luokan metodia save_score(), mikäli pisteitä on kertynyt pelin aikana. Tämä metodi tallentaa pelaajan nimen ja pisteet tietokantaan. Lopuksi kutsutaan sisäistä metodia __finished(), joka on vastaava silmukka kuin __start(), mutta pelkällä syötteiden tarkistuksella ja kuvan piirtämisellä.
 
-Käydään läpi pelisilmukan toinen vaihe, joka tarkistaa tahdistinluokalta Pace, onko palikan aika tippua alaspäin.
+__Käydään läpi pelisilmukan toinen vaihe, joka tarkistaa tahdistinluokalta Pace, onko palikan aika tippua alaspäin.__
 
 <img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_palikan_liikkeen_ajastus.png">
 
 Silmukka kutsuu ensimmäiseksi luokan sisäistä metodia __check_counter(), joka puolestaan kutsuu Pace luokan metodia check_counter(). Pace luokassa kutsutaan ensin luokan sisäistä metodia __increase_counter(), joka lisää laskurin arvoon vaikeustason arvon tai, pelaajan pitäessä alaspäin nappia painettuna, vaikeustason arvon nelinkertaisena. Seuraavaksi check_counter() laskee, onko muuttujan counter arvo niin iso, että sen arvo jaettuna 60:llä ylittää muuttujan integer arvon. Jos on, niin muuttujan integer arvoa lisätään yhdellä ja palautetaan True, muussa tapauksessa False. Tässä siis tahdistetaan palikan liike niin, että aluksi palikka putoaa yhden ruudun sekunnissa ja vaikeustason kasvaessa nopeammin. Jos check_counter() palautti True, palikan on aika siirtyä alaspäin ja kutsutaan Level luokan metodia lower_block().
 
-Lower_block sisältää itsessään palikan törmäystarkistuksen, peliruudun päivityksen, täysien rivien tuhoamisen ja uuden palikan siirron alkukoordinaatteihin.
+__Lower_block sisältää itsessään palikan törmäystarkistuksen, peliruudun päivityksen, täysien rivien tuhoamisen ja uuden palikan siirron alkukoordinaatteihin.__
 
 <img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_palikan_liike_alas.png">
 
@@ -61,7 +61,7 @@ Palikkaa siirretään ensin yksi ruutu alaspäin ja sen jälkeen tarkistetaan ai
 Jos palikan siirto alaspäin aiheutti törmäyksen, siirretään palikka takaisin edelliseen sijaintiin. Sen jälkeen kutsutaan Grid luokan metodia, joka muuttaa ne koordinaatit ruudukossa, jossa palikka sijaitsee, palikan värikoodin arvoon. Sen jälkeen kutsutaan toista Grid luokan metodia check_for_full_rows(), joka tarkistaa, tuliko ruudukkoon täysiä rivejä. Jos täysiä rivejä havaitaan, ne poistetaan ja vastaava määrä tyhjiä rivejä lisätään ruudukon ylälaitaan. Lopuksi palautetaan poistettujen rivien määrä.
 Lopuksi kutsutaan Block luokan metodia reset_position(), joka palauttaa palikan alkusijaintiin. Tämän jälkeen funktio palauttaa False.
 
-Alla kuvattu tilanne, miten vaikeusaste lisääntyy, kun rivejä on tuhottu 15 kertaa.
+__Alla kuvattu tilanne, miten vaikeusaste lisääntyy, kun rivejä on tuhottu 15 kertaa.__
 
 <img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_pisteiden_tarkistus.png">
 
