@@ -26,6 +26,7 @@ BLOCK_COLOR_1=#FF0000
 BLOCK_COLOR_2=#00FF00
 BLOCK_COLOR_3=#0000FF
 ```
+__HUOM! Jos muutat tietokannan nimeä, tietokannan alustus on tehtävä uudelleen!__
 
 ## Pelin käynnistys
 
