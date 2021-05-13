@@ -18,7 +18,7 @@ Käyttöliittymä on jaoteltu omiin luokkiin näkymien perusteella. Jokainen nä
 Sovelluslogiikan rungon muodostaa luokka GameLoop. Hakemisto game_loop sisältää kaikki GameLoopin tarvitsemat luokat. Lisäksi GameLoop hyödyntää GameRenderer luokkaa pelinäkymän piirtämiseen.
 
 ### Pysyväistallennus
-Pelin tulosten tallentamisesta huolehtii luokka ScoreRepository, joka tallentaa pelaajan nimen ja pelin tuloksen SQLite tietokantaan.
+Pelin tulosten tallentamisesta huolehtii luokka ScoreRepository, joka tallentaa pelaajan nimen ja pelin tuloksen SQLite tietokantaan. Oletuksena tiedostonimi on scores.db, mutta sitä voi muuttaa juurihakemistosta löytyvän .env tiedoston kohdasta DATABASE_FILENAME.
 
 ## Luokkakaaviot
 
@@ -66,3 +66,5 @@ __Alla kuvattu tilanne, miten vaikeusaste lisääntyy, kun rivejä on tuhottu 15
 <img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_pisteiden_tarkistus.png">
 
 Silmukka kutsuu sisäistä metodia __check_score(), joka kutsuu Score luokan funktiota check_score(). Tämä funktio palauttaa True, jos counter muuttujan arvo on 15. Samalla counter arvo nollataan. Tämän jälkeen kutsutaan Pace luokan metodia increase_difficulty(), joka nostaa difficulty muuttujan arvoa yhdellä.
+
+Käyttäjän syötteitä voivat olla palikan liikuttaminen vasemmalle tai oikealle, palikan kierto, palikan putoamisen nopeuttaminen tai palikan pudotus. Liikuttaminen vasemmalle ja oikealle hyödyntää samaa level luokan funktiota block_collides() törmäysten tarkistukseen. Palikan putoaminen on toteutettu siten, että lower_block() funktiota suoritetaan silmukassa, kunnes se palauttaa False.
