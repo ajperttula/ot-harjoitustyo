@@ -34,13 +34,18 @@ Metodi new_game(player) saa argumenttina pelaajan syöttämän nimen, joka laite
 
 Metodi start pyörii silmukassa, kunnes game over tilanne aiheuttaa siirtymisen finished metodin silmukkaan. Silmukan kutsujärjestys on seuraava:
 
-1. tarkista onko peli ohi
-2. tarkista onko palikan aika liikkua alaspäin
-3. tarkista onko rivejä tuhottu niin monta, että on aika nopeuttaa peliä
-4. tarkista käyttäjän syötteet
-5. piirrä kuva näytölle
-6. kutsu clock oliota, joka ajastaa silmukan pyörimään 60 kertaa sekunnissa
+1. tarkista onko peli ohi __check_game_over()
+2. tarkista onko palikan aika liikkua alaspäin __check_counter()
+3. tarkista onko rivejä tuhottu niin monta, että on aika nopeuttaa peliä __check_score()
+4. tarkista käyttäjän syötteet __check_events()
+5. piirrä kuva näytölle __render_game()
+6. kutsu clock oliota, joka ajastaa silmukan pyörimään 60 kertaa sekunnissa __clock.tick(60)
 
+Alla kuvattuna tilanne, jossa peli todetaan päättyneeksi.
+
+<img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_peli_ohi_tarkistus.png">
+
+Jos palikan todetaan törmänneen jo ennen kuin se on liikkunut alaspäin, asetetaan totuusarvomuuttuja game_over arvoon True ja kutsutaan sisäistä metodia __save_score(), joka puolestaan kutsuu ScoreRepository luokan metodia save_score(), mikäli pisteitä on kertynyt pelin aikana. Tämä metodi tallentaa pelaajan nimen ja pisteet tietokantaan. Lopuksi kutsutaan sisäistä metodia __finished(), joka on vastaava silmukka kuin __start(), mutta pelkällä syötteiden tarkistuksella ja kuvan piirtämisellä.
 
 Käydään läpi pelisilmukan toinen vaihe, joka tarkistaa tahdistinluokalta Pace, onko palikan aika tippua alaspäin.
 
