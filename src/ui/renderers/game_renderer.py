@@ -137,7 +137,7 @@ class GameRenderer(Renderer):
             name (str): Which object to draw.
             row (int): Y coordinate.
             col (int): X coordinate.
-            color (tuple): Color of the rectangle as RGB-value.
+            color (tuple): Color of the rectangle as hex-value.
             border (int, optional): Determines the border width.
                 If not given, the whole rectangle is filled with color. Defaults to 0.
         """

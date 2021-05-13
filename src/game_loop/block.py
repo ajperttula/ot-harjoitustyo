@@ -15,9 +15,9 @@ class Block:
         shape (list):
             Shape represented as a 2-dimentional list filled with ones and zeros.
             Positions with ones represent the block, zeros just fill the empty space.
-        color (tuple): Color represented as RGB-value.
+        color (str): Color represented as hex-value.
         next_shape (list): Shape that block is going to be next.
-        next_color (tuple): Color that block is going to be next.
+        next_color (str): Color that block is going to be next.
     """
     SHAPES = [[[1, 1, 1, 1]],
 

@@ -30,7 +30,7 @@ class Grid:
         """Updates grid coordinates with block color.
 
         When block collides to another block or grid floor, the default grid value zero
-        is changed to RGB-value of the block so that renderer knows how to draw the grid
+        is changed to hex-value of the block so that renderer knows how to draw the grid
         and full rows can be identified later on.
 
         Args:
@@ -66,7 +66,7 @@ class Grid:
         """Checks and deletes full rows on the grid.
 
         If the row is full, all the values on that particular row
-        are RGB-values from previous blocks.
+        are hex-values from previous blocks.
 
         Returns:
             int: Number of full rows deleted.
