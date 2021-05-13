@@ -60,3 +60,9 @@ Lower_block sisältää itsessään palikan törmäystarkistuksen, peliruudun p�
 Palikkaa siirretään ensin yksi ruutu alaspäin ja sen jälkeen tarkistetaan aiheuttaako tämä sijainti törmäyksen toiseen palikkaan tai meneekö palikan sijainti ohi peliruudukon reunoista. Yksinkertaisessa tapauksessa palikka ei törmää, ja funktio palauttaa True.
 Jos palikan siirto alaspäin aiheutti törmäyksen, siirretään palikka takaisin edelliseen sijaintiin. Sen jälkeen kutsutaan Grid luokan metodia, joka muuttaa ne koordinaatit ruudukossa, jossa palikka sijaitsee, palikan värikoodin arvoon. Sen jälkeen kutsutaan toista Grid luokan metodia check_for_full_rows(), joka tarkistaa, tuliko ruudukkoon täysiä rivejä. Jos täysiä rivejä havaitaan, ne poistetaan ja vastaava määrä tyhjiä rivejä lisätään ruudukon ylälaitaan. Lopuksi palautetaan poistettujen rivien määrä.
 Lopuksi kutsutaan Block luokan metodia reset_position(), joka palauttaa palikan alkusijaintiin. Tämän jälkeen funktio palauttaa False.
+
+Alla kuvattu tilanne, miten vaikeusaste lisääntyy, kun rivejä on tuhottu 15 kertaa.
+
+<img src="https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekvenssikaavio_pisteiden_tarkistus.png">
+
+Silmukka kutsuu sisäistä metodia __check_score(), joka kutsuu Score luokan funktiota check_score(). Tämä funktio palauttaa True, jos counter muuttujan arvo on 15. Samalla counter arvo nollataan. Tämän jälkeen kutsutaan Pace luokan metodia increase_difficulty(), joka nostaa difficulty muuttujan arvoa yhdellä.
