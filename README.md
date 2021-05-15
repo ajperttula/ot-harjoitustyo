@@ -10,19 +10,17 @@ Lataa uusin release [tästä](https://github.com/ajperttula/ot-harjoitustyo/arch
 
 [Vaatimusmäärittely](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-[Tuntikirjanpito](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
-
 [Pelin arkkitehtuuri](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+[Testausdokumentaatio](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
+[Tuntikirjanpito](https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Asennus
 
 Asenna riippuvuudet komennolla
 ```bash
 poetry install
-```
-Alusta tietokantayhteys komennolla
-```bash
-poetry run invoke build
 ```
 Käynnistä peli komennolla
 ```bash
