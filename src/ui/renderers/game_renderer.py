@@ -1,6 +1,6 @@
 import pygame
 from ui.renderers.renderer import Renderer
-from config import CELL_SIZE, CORNER, TEXT_COLOR
+from config import CELL_SIZE, CORNER, TEXT_COLOR, GRID_BG_COLOR
 
 
 class GameRenderer(Renderer):
@@ -29,6 +29,7 @@ class GameRenderer(Renderer):
             game_over (bool): States if game is over or not.
         """
         self._draw_background()
+        self.__draw_grid_background()
         self.__draw_block()
         self.__draw_next_block()
         self.__draw_grid()
@@ -82,6 +83,15 @@ class GameRenderer(Renderer):
                     self.__draw_rectangle("next_block", row, col, self.__level.block.next_color)
                     self.__draw_rectangle("next_block", row, col, self.__level.grid.color, 1)
 
+    def __draw_grid_background(self):
+        width = self.__level.grid.width * CELL_SIZE
+        height = self.__level.grid.height * CELL_SIZE
+
+        background = pygame.Rect(CORNER, CORNER, width, height)
+        pygame.draw.rect(self._display,
+                         GRID_BG_COLOR,
+                         background)
+
     def __draw_grid(self):
         """Draws the gameplay grid.
 
@@ -130,14 +140,14 @@ class GameRenderer(Renderer):
         self._display.blit(title, title_position)
         self._display.blit(text, position)
 
-    def __draw_rectangle(self, name: str, row: int, col: int, color: tuple, border=0):
+    def __draw_rectangle(self, name: str, row: int, col: int, color: str, border=0):
         """Draws a rectangle shape based on arguments given.
 
         Args:
             name (str): Which object to draw.
             row (int): Y coordinate.
             col (int): X coordinate.
-            color (tuple): Color of the rectangle as hex-value.
+            color (str): Color of the rectangle as hex-value.
             border (int, optional): Determines the border width.
                 If not given, the whole rectangle is filled with color. Defaults to 0.
         """

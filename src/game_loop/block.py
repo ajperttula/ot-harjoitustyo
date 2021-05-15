@@ -1,5 +1,5 @@
 from random import randint
-from config import BLOCK_COLOR_1, BLOCK_COLOR_2, BLOCK_COLOR_3
+from config import BLOCK_COLORS
 
 
 class Block:
@@ -39,8 +39,6 @@ class Block:
               [[1, 1],
                [1, 1]]]
 
-    COLORS = [BLOCK_COLOR_1, BLOCK_COLOR_2, BLOCK_COLOR_3]
-
     def __init__(self):
         """Constructor creates a new Block object.
 
@@ -49,9 +47,9 @@ class Block:
         self.y_pos = 0
         self.x_pos = 4
         self.shape = Block.SHAPES[randint(0, len(Block.SHAPES)-1)]
-        self.color = Block.COLORS[randint(0, len(Block.COLORS)-1)]
+        self.color = BLOCK_COLORS[randint(0, len(BLOCK_COLORS)-1)]
         self.next_shape = Block.SHAPES[randint(0, len(Block.SHAPES)-1)]
-        self.next_color = Block.COLORS[randint(0, len(Block.COLORS)-1)]
+        self.next_color = BLOCK_COLORS[randint(0, len(BLOCK_COLORS)-1)]
 
     def reset_position(self):
         """Resets block's position, changes block shape and color and creates next ones.
@@ -137,6 +135,6 @@ class Block:
         self.next_shape = Block.SHAPES[randint(0, len(Block.SHAPES)-1)]
 
     def __create_next_color(self):
-        """Sets a random color from the COLORS list as a value to next color.
+        """Sets a random color from the BLOCK_COLORS list as a value to next color.
         """
-        self.next_color = Block.COLORS[randint(0, len(Block.COLORS)-1)]
+        self.next_color = BLOCK_COLORS[randint(0, len(BLOCK_COLORS)-1)]

@@ -30,13 +30,19 @@ def check(color: str):
 
 
 DATABASE_FILENAME = os.getenv("DATABASE_FILENAME") or "scores.db"
-BG_COLOR = check(os.getenv("BG_COLOR")) or "#EBEBEB"
-TEXT_COLOR = check(os.getenv("TEXT_COLOR")) or "#000000"
-BUTTON_COLOR = check(os.getenv("BUTTON_COLOR")) or "#FF0000"
-GRID_COLOR = check(os.getenv("GRID_COLOR")) or "#7D7D7D"
-BLOCK_COLOR_1 = check(os.getenv("BLOCK_COLOR_1")) or "#FF0000"
-BLOCK_COLOR_2 = check(os.getenv("BLOCK_COLOR_2")) or "#00FF00"
-BLOCK_COLOR_3 = check(os.getenv("BLOCK_COLOR_3")) or "#0000FF"
+BG_COLOR = check(os.getenv("BG_COLOR")) or "#BFDBF7"
+TEXT_COLOR = check(os.getenv("TEXT_COLOR")) or "#022B3A"
+BUTTON_COLOR = check(os.getenv("BUTTON_COLOR")) or "#1F7A8C"
+GRID_BG_COLOR = check(os.getenv("GRID_BG_COLOR")) or "#FCFCFC"
+GRID_COLOR = check(os.getenv("GRID_COLOR")) or "#E1E5F2"
+BLOCK_COLOR_1 = check(os.getenv("BLOCK_COLOR_1")) or "#F94144"
+BLOCK_COLOR_2 = check(os.getenv("BLOCK_COLOR_2")) or "#F3722C"
+BLOCK_COLOR_3 = check(os.getenv("BLOCK_COLOR_3")) or "#90BE6D"
+BLOCK_COLOR_4 = check(os.getenv("BLOCK_COLOR_4")) or "#277DA1"
+BLOCK_COLOR_5 = check(os.getenv("BLOCK_COLOR_5")) or "#577590"
+BLOCK_COLOR_6 = check(os.getenv("BLOCK_COLOR_6")) or "#F9C74F"
+BLOCK_COLORS = [BLOCK_COLOR_1, BLOCK_COLOR_2, BLOCK_COLOR_3,
+                BLOCK_COLOR_4, BLOCK_COLOR_5, BLOCK_COLOR_6]
 SCREEN_WIDTH = 430
 SCREEN_HEIGHT = 540
 GRID_WIDTH = 10
