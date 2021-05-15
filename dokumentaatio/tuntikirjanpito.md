@@ -23,4 +23,5 @@
 |  11.5. | 1    | docstring-dokumentointia |
 |  12.5. | 6    | docstring-dokumentointia, ympäristömuuttujat käyttöön, sekvenssikaavioita |
 |  13.5. | 2    | sekvenssikaavioita |
-|   yht | 86   | | 
+|  15.5. | 2    | testausdokumentaatio, pieniä viilauksia ulkoasuun |
+|   yht | 88   | | 
