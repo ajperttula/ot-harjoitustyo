@@ -28,7 +28,3 @@ def init_database():
     database = get_connection()
     drop_table(database)
     create_table(database)
-
-
-if __name__ == "__main__":
-    init_database()
