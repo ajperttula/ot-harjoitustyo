@@ -62,7 +62,9 @@ class Renderer:
         text = self._font_small.render(text, True, TEXT_COLOR)
         pygame.draw.rect(self._display,
                          BUTTON_COLOR,
-                         button)
+                         button,
+                         0,
+                         3)
         text_width = text.get_width()
         text_height = text.get_height()
         pos_x = button.x + (button.width-text_width)/2
