@@ -1,4 +1,5 @@
 from db_connection import get_connection
+from db_init import init_database
 
 
 class ScoreRepository:
@@ -14,6 +15,14 @@ class ScoreRepository:
             database: SQL database connection.
         """
         self.__database = database
+        self.__valid_database()
+
+    def __valid_database(self):
+        try:
+            sql = "SELECT * FROM scores"
+            self.__database.execute(sql).fetchall()
+        except:
+            init_database()
 
     def save_score(self, player: str, score: int):
         """Saves player name and score to database.
