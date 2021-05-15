@@ -1,5 +1,6 @@
 import unittest
 from game_loop.block import Block
+from config import BLOCK_COLORS
 
 
 class TestBlock(unittest.TestCase):
@@ -16,7 +17,7 @@ class TestBlock(unittest.TestCase):
         self.assertIn(self.block.shape, Block.SHAPES)
 
     def test_constructor_sets_one_of_the_colors_defined_in_class_variable(self):
-        self.assertIn(self.block.color, Block.COLORS)
+        self.assertIn(self.block.color, BLOCK_COLORS)
 
     def test_block_height_equals_block_width_after_clockwise_rotation(self):
         height = self.block.height()

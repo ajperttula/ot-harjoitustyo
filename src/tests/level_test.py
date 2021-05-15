@@ -71,11 +71,6 @@ class TestLevel(unittest.TestCase):
         new_shape = self.level.block.shape
         self.assertEqual(new_shape, old_shape)
 
-    def test_reset_game_state_sets_game_over_false(self):
-        self.level.game_over = True
-        self.level.reset_game_state()
-        self.assertFalse(self.level.game_over)
-
     def test_reset_game_state_resets_block_x_position(self):
         self.level.block.x_pos = 7
         self.level.reset_game_state()
