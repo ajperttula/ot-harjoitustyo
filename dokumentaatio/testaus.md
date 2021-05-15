@@ -23,6 +23,8 @@ Tämä on konfiguroitu .env.test tiedostoon.
 
 Testien ulkopuolelle on jätetty valikkojen luokat sekä näkymien piirtämisestä vastaavat Renderer luokat.
 
+<img src=https://github.com/ajperttula/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/testauskattavuus.png>
+
 ## Järjestelmätestaus
 
 Testaus on toteutettu asentamalla peli käyttöohjeen ohjeiden mukaisesti, käymällä pelin toiminnallisuudet läpi vaativuusmäärittelyn mukaisesti
