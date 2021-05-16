@@ -8,25 +8,25 @@ Asenna pelin riippuvuudet komennolla
 ```bash
 poetry install
 ```
-Alusta sen jälkeen tietokantayhteys komennolla
-```bash
-poetry run invoke build
-```
 
 ## Asetusten muuttaminen
 
 Voit muokata pisteiden tallennukseen käytetyn tietokannan nimeä sekä pelin värejä muokkaamalla juurihakemiston .env tiedostoa. Väri tulee antaa heksadesimaaliformaatissa. https://www.rgbtohex.net/
 ```bash
 DATABASE_FILENAME=scores.db
-BG_COLOR=#EBEBEB
-TEXT_COLOR=#000000
-BUTTON_COLOR=#FF0000
-GRID_COLOR=#7D7D7D
-BLOCK_COLOR_1=#FF0000
-BLOCK_COLOR_2=#00FF00
-BLOCK_COLOR_3=#0000FF
+BG_COLOR=#BFDBF7
+TEXT_COLOR=#022B3A
+BUTTON_COLOR=#1F7A8C
+GRID_BG_COLOR=#FCFCFC
+GRID_COLOR=#E1E5F2
+BLOCK_COLOR_1=#F94144
+BLOCK_COLOR_2=#F3722C
+BLOCK_COLOR_3=#90BE6D
+BLOCK_COLOR_4=#277DA1
+BLOCK_COLOR_5=#577590
+BLOCK_COLOR_6=#F9C74F
 ```
-__HUOM! Jos muutat tietokannan nimeä, tietokannan alustus on tehtävä uudelleen!__
+__HUOM! Peli tallentaa tulokset aina sen nimiseen tietokantatiedostoon, minkä olet määritellyt .env tiedostossa. Jos muutat tiedoston nimeä, et näe enää listausta vanhoista huipputuloksista. Voit palata käyttämään vanhaa tietokantaa muuttamalla nimen takaisin alkuperäiseen.__
 
 ## Pelin käynnistys
 
