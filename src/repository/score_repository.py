@@ -1,3 +1,4 @@
+import sqlite3
 from db_connection import get_connection
 from db_init import init_database
 
@@ -18,10 +19,14 @@ class ScoreRepository:
         self.__valid_database()
 
     def __valid_database(self):
+        """Checks if database is alreade initiated.
+
+        If not, calls init_database method to initiate database with correct tables.
+        """
         try:
             sql = "SELECT * FROM scores"
             self.__database.execute(sql).fetchall()
-        except:
+        except sqlite3.OperationalError:
             init_database()
 
     def save_score(self, player: str, score: int):
