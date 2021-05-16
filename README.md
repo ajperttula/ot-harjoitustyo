@@ -2,7 +2,7 @@
 
 Peli, jossa pelaajan tehtävänä on järjestellä pelikentän yläosasta tippuvia palikoita siten, että saadaan kokonainen rivi täyttymään. Täysi rivi tuhoutuu, jolloin lisää tilaa vapautuu pelikenttään. Pisteiden kasvaessa myös pelin tempo kasvaa.
 
-Lataa uusin release [tästä](https://github.com/ajperttula/ot-harjoitustyo/archive/refs/tags/viikko6.zip)
+Lataa uusin release [tästä](https://github.com/ajperttula/ot-harjoitustyo/archive/refs/tags/final.zip)
 
 ## Dokumentaatio
 
