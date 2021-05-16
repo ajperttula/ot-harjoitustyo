@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa tästä pelin viimeisin release.
+Lataa [tästä](https://github.com/ajperttula/ot-harjoitustyo/archive/refs/tags/final.zip) pelin viimeisin release.
 
 ## Pelin asennus
 
