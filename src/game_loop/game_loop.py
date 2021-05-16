@@ -8,25 +8,26 @@ class GameLoop:
     This class ties together the the game logic and it's elements.
 
     Attributes:
-        level (Level): Handles events on the gameplay grid.
-        clock (Clock): Controls game frame rate.
-        event_queue (Event): Handles user events.
-        renderer (GameRenderer): Draws the game display.
-        score_repository (ScoreRepository): Handles communication with score database.
-        running (bool): States if loop is running.
-        game_over (bool): States if game is over.
-        player (str): Player name given by the user.
+        level (Level): Handles events on the gameplay grid
+        clock (Clock): Controls game frame rate
+        event_queue (Event): Handles user events
+        renderer (GameRenderer): Draws the game display
+        score_repository (ScoreRepository): Handles communication with score database
+        running (bool): States if loop is running
+        game_over (bool): States if game is over
+        player (str): Player name given by the user
     """
+
     def __init__(self, level: "Level", clock: "Clock", event_queue: "Event",
                  renderer: "GameRenderer", score_repository: "ScoreRepository"):
-        """Constructor creates a new gameloop object and sets attributes.
+        """Creates a new gameloop object and sets attributes.
 
         Args:
-            level (Level): Level object.
-            clock (Clock): Clock object.
-            event_queue (Event): Event object.
-            renderer (GameRenderer): GameRenderer object.
-            score_repository (ScoreRepository): ScoreRepository object.
+            level (Level): Level object
+            clock (Clock): Clock object
+            event_queue (Event): Event object
+            renderer (GameRenderer): GameRenderer object
+            score_repository (ScoreRepository): ScoreRepository object
         """
         self.__level = level
         self.__clock = clock

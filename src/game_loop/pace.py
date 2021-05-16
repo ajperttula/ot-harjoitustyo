@@ -8,17 +8,18 @@ class Pace:
     Attributes:
         counter (int):
             Helper variable to calculate if game pace should be
-            increased or not.
+            increased or not
         integer (int):
             Another helper variable to calculate if game pace should be
-            increased or not.
+            increased or not
         difficulty (int):
-            Defines how fast the block falls.
+            Defines how fast the block falls
         go_fast (bool):
-            Boolean value for momentarily speeding up the game pace.
+            Boolean value for momentarily speeding up the game pace
     """
+
     def __init__(self):
-        """Constructor creates a new Pace object and sets attributes.
+        """Creates a new Pace object and sets attributes.
         """
         self.__counter = 0
         self.__integer = 0
@@ -33,7 +34,7 @@ class Pace:
         integer value is added by one.
 
         Returns:
-            bool: True or False depending on the equation result.
+            bool: True or False depending on the equation result
         """
         self.__increase_counter()
         if self.__counter // 60 > self.__integer:

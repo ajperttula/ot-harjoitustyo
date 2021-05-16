@@ -6,18 +6,19 @@ class Renderer:
     """Class responsible for rendering the display.
 
     Atributes:
-        display: Pygame display object.
-        display_height: Display height in pixels.
-        display_width: Display width in pixels.
-        font_small: Pygame font to render small text.
-        font_big: Pygame font to render bigger text.
-        main_menu_button: Pygame rect object to represent a button.
+        display: Pygame display object
+        display_height: Display height in pixels
+        display_width: Display width in pixels
+        font_small: Pygame font to render small text
+        font_big: Pygame font to render bigger text
+        main_menu_button: Pygame rect object to represent a button
     """
+
     def __init__(self, display):
         """Creates a new renderer and sets attributes.
 
         Args:
-            display: Pygame display object.
+            display: Pygame display object
         """
         self._display = display
         self._display_height = display.get_height()
@@ -40,13 +41,13 @@ class Renderer:
         """Creates a pygame rect object to represent a button.
 
         Args:
-            pos_x (int): Distance from the left border of the display.
-            pos_y (int): Distance from the top border of the display.
-            width (int): Width of the button in pixels.
-            height (int): Height of the button in pixels.
+            pos_x (int): Distance from the left border of the display
+            pos_y (int): Distance from the top border of the display
+            width (int): Width of the button in pixels
+            height (int): Height of the button in pixels
 
         Returns:
-            Rect: Pygame rect object.
+            Rect: Pygame rect object
         """
         return pygame.Rect(pos_x, pos_y, width, height)
 
@@ -56,8 +57,8 @@ class Renderer:
         Text is drawn on the middle of the button.
 
         Args:
-            button: Pygame rect object.
-            text (str): Text on the button.
+            button: Pygame rect object
+            text (str): Text on the button
         """
         text = self._font_small.render(text, True, TEXT_COLOR)
         pygame.draw.rect(self._display,

@@ -10,14 +10,14 @@ class Block:
     block during gameplay.
 
     Attributes:
-        x_pos (int): X position on the gameplay grid.
-        y_pos (int): Y position on the gameplay grid.
+        x_pos (int): X position on the gameplay grid
+        y_pos (int): Y position on the gameplay grid
         shape (list):
             Shape represented as a 2-dimentional list filled with ones and zeros.
             Positions with ones represent the block, zeros just fill the empty space.
-        color (str): Color represented as hex-value.
-        next_shape (list): Shape that block is going to be next.
-        next_color (str): Color that block is going to be next.
+        color (str): Color represented as hex-value
+        next_shape (list): Shape that block is going to be next
+        next_color (str): Color that block is going to be next
     """
     SHAPES = [[[1, 1, 1, 1]],
 
@@ -40,9 +40,7 @@ class Block:
                [1, 1]]]
 
     def __init__(self):
-        """Constructor creates a new Block object.
-
-        Sets attributes to their initial state.
+        """Creates a new Block object and sets attributes.
         """
         self.y_pos = 0
         self.x_pos = 4
@@ -91,7 +89,7 @@ class Block:
         """Returns height of the block shape.
 
         Returns:
-            int: Length of the shape list.
+            int: Length of the shape list
         """
         return len(self.shape)
 
@@ -99,7 +97,7 @@ class Block:
         """Returns width of the block shape.
 
         Returns:
-            int: Length of the shape list's nested list.
+            int: Length of the shape list's nested list
         """
         return len(self.shape[0])
 
@@ -107,7 +105,7 @@ class Block:
         """Returns height of the block's next shape.
 
         Returns:
-            int: Length of the next_shape list.
+            int: Length of the next_shape list
         """
         return len(self.next_shape)
 
@@ -115,7 +113,7 @@ class Block:
         """Returns width of the block's next shape.
 
         Returns:
-            int: Length of the next_shape list's nested list.
+            int: Length of the next_shape list's nested list
         """
         return len(self.next_shape[0])
 

@@ -7,8 +7,9 @@ class Clock:
     Attributes:
         clock: Pygame clock object
     """
+
     def __init__(self):
-        """Constructor creates a new Clock object
+        """Constructor creates a new Clock object.
         """
         self.__clock = pygame.time.Clock()
 
@@ -16,6 +17,6 @@ class Clock:
         """Controls game's frame rate.
 
         Args:
-            fps (int): Chosen frame rate.
+            fps (int): Chosen frame rate
         """
         self.__clock.tick(fps)

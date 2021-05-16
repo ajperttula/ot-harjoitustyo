@@ -13,7 +13,7 @@ def check(color: str):
     """Checks that color code from .env file is valid.
 
     Args:
-        color (str): color in hex-format.
+        color (str): color in hex-format
 
     Returns:
         (None/str): None if not valid, color if valid

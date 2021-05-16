@@ -6,17 +6,18 @@ class PlayerName:
     """Class responsible for running the player name input view.
 
     Attributes:
-        renderer: Does the actual drawing.
-        event_queue: Handles user events.
-        player (str): Player name to render.
-        running (bool): To stop the loop.
+        renderer: Does the actual drawing
+        event_queue: Handles user events
+        player (str): Player name to render
+        running (bool): To stop the loop
     """
+
     def __init__(self, renderer: "UIRenderer", event_queue: "Event"):
         """Creates a new high score object and sets attributes.
 
         Args:
-            renderer (UIRenderer): UIRenderer object.
-            event_queue (Event): Event object.
+            renderer (UIRenderer): UIRenderer object
+            event_queue (Event): Event object
         """
         self.__renderer = renderer
         self.__event_queue = event_queue
@@ -27,7 +28,7 @@ class PlayerName:
         """Checks user events and renders the screen.
 
         Returns:
-            str: Player name that player has entered.
+            str: Player name that player has entered
         """
         while self.__running:
             self.__check_events()
@@ -38,7 +39,7 @@ class PlayerName:
         """Returns and resets the player name.
 
         Returns:
-            str: Player name that player has entered.
+            str: Player name that player has entered
         """
         player = self.__player
         self.__reset_variables()

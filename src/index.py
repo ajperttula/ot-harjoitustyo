@@ -33,9 +33,11 @@ def main():
     ui_renderer = UIRenderer(display)
 
     name_input = PlayerName(ui_renderer, event_queue)
-    game_loop = GameLoop(level, clock, event_queue, game_renderer, score_repository)
+    game_loop = GameLoop(level, clock, event_queue,
+                         game_renderer, score_repository)
     high_scores = HighScores(ui_renderer, event_queue, score_repository)
-    main_menu = MainMenu(ui_renderer, event_queue, name_input, game_loop, high_scores)
+    main_menu = MainMenu(ui_renderer, event_queue,
+                         name_input, game_loop, high_scores)
 
     main_menu.start()
 

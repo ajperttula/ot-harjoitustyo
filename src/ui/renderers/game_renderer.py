@@ -7,17 +7,18 @@ class GameRenderer(Renderer):
     """Class responsible for rendering gameplay window.
 
     Args:
-        Renderer: Inherited renderer class.
+        Renderer: Inherited renderer class
 
     Attributes:
-        level (Level): Handles events on the gameplay grid.
+        level (Level): Handles events on the gameplay grid
     """
+
     def __init__(self, display, level: "Level"):
         """Creates a new game_renderer and sets attributes.
 
         Args:
-            display: Pygame display object.
-            level (Level): Handles events on the gameplay grid.
+            display: Pygame display object
+            level (Level): Handles events on the gameplay grid
         """
         super().__init__(display)
         self.__level = level
@@ -26,7 +27,7 @@ class GameRenderer(Renderer):
         """Draws the gameplay view.
 
         Args:
-            game_over (bool): States if game is over or not.
+            game_over (bool): States if game is over or not
         """
         self._draw_background()
         self.__draw_grid_background()
@@ -46,18 +47,21 @@ class GameRenderer(Renderer):
             """Checks if given position in block's shape list has value 1.
 
             Args:
-                row (int): Row number in the block's shape list.
-                col (int): Column number in the block's shape list.
+                row (int): Row number in the block's shape list
+                col (int): Column number in the block's shape list
 
             Returns:
-                bool: True if given position is 1, else False.
+                bool: True if given position is 1, else False
             """
             return self.__level.block.shape[row][col] == 1
 
         for row in range(self.__level.block.height()):
             for col in range(self.__level.block.width()):
                 if position_is_block(row, col):
-                    self.__draw_rectangle("block", row, col, self.__level.block.color)
+                    self.__draw_rectangle("block",
+                                          row,
+                                          col,
+                                          self.__level.block.color)
 
     def __draw_next_block(self):
         """Draws text 'next' and shape of the next block.
@@ -66,11 +70,11 @@ class GameRenderer(Renderer):
             """Checks if given position in next block's shape list has value 1.
 
             Args:
-                row (int): Row number in the next block's shape list.
-                col (int): Column number in the next block's shape list.
+                row (int): Row number in the next block's shape list
+                col (int): Column number in the next block's shape list
 
             Returns:
-                bool: True if given position is 1, else False.
+                bool: True if given position is 1, else False
             """
             return self.__level.block.next_shape[row][col] == 1
 
@@ -80,8 +84,15 @@ class GameRenderer(Renderer):
         for row in range(self.__level.block.next_height()):
             for col in range(self.__level.block.next_width()):
                 if position_is_block(row, col):
-                    self.__draw_rectangle("next_block", row, col, self.__level.block.next_color)
-                    self.__draw_rectangle("next_block", row, col, self.__level.grid.color, 1)
+                    self.__draw_rectangle("next_block",
+                                          row,
+                                          col,
+                                          self.__level.block.next_color)
+                    self.__draw_rectangle("next_block",
+                                          row,
+                                          col,
+                                          self.__level.grid.color,
+                                          1)
 
     def __draw_grid_background(self):
         width = self.__level.grid.width * CELL_SIZE
@@ -105,11 +116,11 @@ class GameRenderer(Renderer):
             Position is occupied if that grid coordinate value is not zero.
 
             Args:
-                row (int): Grid row number.
-                col (int): Grid column number.
+                row (int): Grid row number
+                col (int): Grid column number
 
             Returns:
-                bool: True if position is occupied, else False.
+                bool: True if position is occupied, else False
             """
             return self.__level.grid[row][col] != 0
 
@@ -118,12 +129,18 @@ class GameRenderer(Renderer):
                 if position_is_occupied(row, col):
                     color = self.__level.grid[row][col]
                     self.__draw_rectangle("grid", row, col, color)
-                self.__draw_rectangle("grid", row, col, self.__level.grid.color, 1)
+                self.__draw_rectangle("grid",
+                                      row,
+                                      col,
+                                      self.__level.grid.color,
+                                      1)
 
     def __draw_score(self):
         """Draws score text and current score.
         """
-        score = self._font_small.render(f"score: {self.__level.score.score}", True, TEXT_COLOR)
+        score = self._font_small.render(f"score: {self.__level.score.score}",
+                                        True,
+                                        TEXT_COLOR)
         self._display.blit(score, (290, 20))
 
     def __draw_game_over(self):
@@ -133,7 +150,9 @@ class GameRenderer(Renderer):
         title_position = ((self._display_width-title.get_width())/2,
                           (self._display_height-title.get_height())/2)
 
-        text = self._font_small.render("Press ENTER for new game", True, TEXT_COLOR)
+        text = self._font_small.render("Press ENTER for new game",
+                                       True,
+                                       TEXT_COLOR)
         position = ((self._display_width-text.get_width())/2,
                     title_position[1]+title.get_height()+10)
 
@@ -144,11 +163,11 @@ class GameRenderer(Renderer):
         """Draws a rectangle shape based on arguments given.
 
         Args:
-            name (str): Which object to draw.
-            row (int): Y coordinate.
-            col (int): X coordinate.
-            color (str): Color of the rectangle as hex-value.
-            border (int, optional): Determines the border width.
+            name (str): Which object to draw
+            row (int): Y coordinate
+            col (int): X coordinate
+            color (str): Color of the rectangle as hex-value
+            border (int, optional): Determines the border width
                 If not given, the whole rectangle is filled with color. Defaults to 0.
         """
         if name == "block":

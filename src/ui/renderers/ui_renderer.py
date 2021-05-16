@@ -7,29 +7,30 @@ class UIRenderer(Renderer):
     """Class responsible for rendering user interface windows.
 
     Args:
-        Renderer: Inherited renderer class.
+        Renderer: Inherited renderer class
 
     Attributes:
-        new_game_button: Pygame rect object to represent a button.
-        high_scores_button: Pygame rect object to represent a button.
-        exit_button: Pygame rect object to represent a button.
+        new_game_button: Pygame rect object to represent a button
+        high_scores_button: Pygame rect object to represent a button
+        exit_button: Pygame rect object to represent a button
     """
+
     def __init__(self, display):
         """Creates a new ui_renderer and sets attributes.
 
         Args:
-            display: Pygame display object.
+            display: Pygame display object
         """
         super().__init__(display)
         self.__create_buttons()
 
-    def draw(self, page: str, player_name="", scores=[]):
+    def draw(self, page: str, player_name="", scores=""):
         """Draws background, buttons, titles and results if any.
 
         Args:
-            page (str): To determine, which page content to draw.
+            page (str): To determine, which page content to draw
             player_name (str, optional): To draw player name. Defaults to "".
-            scores (list, optional): List containing top 10 scores. Defaults to [].
+            scores (list, optional): List containing top 10 scores. Defaults to "".
         """
         self._draw_background()
         if page == "main":
@@ -77,7 +78,8 @@ class UIRenderer(Renderer):
             scores (list): Contains top 10 scores in tuples (rank, player name, score)
         """
         title = self._font_small.render("TOP 10 Scores", True, TEXT_COLOR)
-        self._display.blit(title, ((self._display.get_width()-title.get_width())/2, 30))
+        self._display.blit(title,
+                           ((self._display.get_width()-title.get_width())/2, 30))
 
         rank = self._font_small.render("Rank", True, TEXT_COLOR)
         self._display.blit(rank, (60, 100))
@@ -106,7 +108,7 @@ class UIRenderer(Renderer):
         """Draws text input box.
 
         Args:
-            player_name (str): player name, which player is inputting.
+            player_name (str): player name, which player is inputting
         """
         title = self._font_small.render("Player name:", True, TEXT_COLOR)
         title_position = ((self._display_width-title.get_width())/2,

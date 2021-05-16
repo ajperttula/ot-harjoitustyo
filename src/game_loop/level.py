@@ -2,19 +2,20 @@ class Level:
     """Class responsible for handling game play events.
 
     Attributes:
-        block (Block): Block that falls on the grid.
-        grid (Grid): Gameplay grid.
-        score (Score): Object that keeps track of score.
-        pace (Pace): Object that controls game pace.
+        block (Block): Block that falls on the grid
+        grid (Grid): Gameplay grid
+        score (Score): Object that keeps track of score
+        pace (Pace): Object that controls game pace
     """
+
     def __init__(self, block: "Block", grid: "Grid", score: "Score", pace: "Pace"):
-        """Constructor creates a new level object.
+        """Creates a new level object and sets attributes.
 
         Args:
-            block (Block): Block object.
-            grid (Grid): Grid object.
-            score (Score): Score object.
-            pace (Pace): Pace object.
+            block (Block): Block object
+            grid (Grid): Grid object
+            score (Score): Score object
+            pace (Pace): Pace object
         """
         self.block = block
         self.grid = grid
@@ -29,7 +30,7 @@ class Level:
         If change caused a collision, it is reversed.
 
         Args:
-            delta_x (int): Describes direction to move (+- 1).
+            delta_x (int): Describes direction to move (+- 1)
         """
         self.block.x_pos += delta_x
 
@@ -59,7 +60,7 @@ class Level:
         reset block position back to initial position.
 
         Returns:
-            bool: True if block didn't collide, else False.
+            bool: True if block didn't collide, else False
         """
         def update_grid():
             """Calls grid method update_grid.
@@ -115,17 +116,17 @@ class Level:
         """Checks block collision with grid borders and another blocks.
 
         Returns:
-            bool: True if one of the collition checks return True, else False.
+            bool: True if one of the collition checks return True, else False
         """
         def position_is_block(row: int, col: int) -> bool:
             """Checks if given position in block's shape list has value 1.
 
             Args:
-                row (int): Row number in the block's shape list.
-                col (int): Column number in the block's shape list.
+                row (int): Row number in the block's shape list
+                col (int): Column number in the block's shape list
 
             Returns:
-                bool: True if given position is 1, else False.
+                bool: True if given position is 1, else False
             """
             return self.block.shape[row][col] == 1
 
@@ -135,11 +136,11 @@ class Level:
             Position is occupied if that grid coordinate value is not zero.
 
             Args:
-                row (int): Row number in the block's shape list.
-                col (int): Column number in the block's shape list.
+                row (int): Row number in the block's shape list
+                col (int): Column number in the block's shape list
 
             Returns:
-                bool: True if position is occupied, else False.
+                bool: True if position is occupied, else False
             """
             return self.grid[self.block.y_pos+row][self.block.x_pos+col] != 0
 
@@ -147,7 +148,7 @@ class Level:
             """Checks if block's x coordinate is less than zero.
 
             Returns:
-                bool: True if less than zero, else False.
+                bool: True if less than zero, else False
             """
             return self.block.x_pos < 0
 
@@ -155,7 +156,7 @@ class Level:
             """Checks if block's leftmost coordinate is greater than grid width.
 
             Returns:
-                bool: True if greater, else False.
+                bool: True if greater, else False
             """
             return self.block.x_pos + self.block.width() > self.grid.width
 
@@ -163,7 +164,7 @@ class Level:
             """Checks if block coordinate is greater than grid height.
 
             Returns:
-                bool: True if greater, else False.
+                bool: True if greater, else False
             """
             return self.block.y_pos + self.block.height() > self.grid.height
 

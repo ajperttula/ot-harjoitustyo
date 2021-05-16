@@ -5,13 +5,14 @@ class Grid:
     """Class representing a Tetris gameplay grid.
 
     Attributes:
-        grid (list): Gameplay grid represented as a 2-dimentional list filled with zeros.
-        width (int): Length of the grid list's nested list.
-        height (int): Length of the grid list.
-        color (str): Color of the grid borders as hex-value.
+        grid (list): Gameplay grid represented as a 2-dimentional list filled with zeros
+        width (int): Length of the grid list's nested list
+        height (int): Length of the grid list
+        color (str): Color of the grid borders as hex-value
     """
+
     def __init__(self):
-        """Constructor creates a new grid object and sets grid attributes.
+        """Creates a new grid object and sets attributes.
         """
         self.width = GRID_WIDTH
         self.height = GRID_HEIGHT
@@ -22,7 +23,7 @@ class Grid:
         """Creates a 2-dimensional list based on GRID_WIDTH and GRID_HEIGHT values.
 
         Returns:
-            list: 2-dimentional list full of zeros.
+            list: 2-dimentional list full of zeros
         """
         return [[0 for col in range(self.width)] for row in range(self.height)]
 
@@ -34,17 +35,17 @@ class Grid:
         and full rows can be identified later on.
 
         Args:
-            block (Block): Block object.
+            block (Block): Block object
         """
         def position_is_block(row: int, col: int) -> bool:
             """Checks if given position in block's shape list has value 1.
 
             Args:
-                row (int): Row number in the block's shape list.
-                col (int): Column number in the block's shape list.
+                row (int): Row number in the block's shape list
+                col (int): Column number in the block's shape list
 
             Returns:
-                bool: True if given position is 1, else False.
+                bool: True if given position is 1, else False
             """
             return block.shape[row][col] == 1
 
@@ -52,8 +53,8 @@ class Grid:
             """Colors those grid coordinates where block is at.
 
             Args:
-                row (int): Row number on the block's shape list.
-                col (int): Column number on the block's shape list.
+                row (int): Row number on the block's shape list
+                col (int): Column number on the block's shape list
             """
             self.grid[block.y_pos+row][block.x_pos+col] = block.color
 
@@ -69,13 +70,13 @@ class Grid:
         are hex-values from previous blocks.
 
         Returns:
-            int: Number of full rows deleted.
+            int: Number of full rows deleted
         """
         def row_is_full(row: int) -> bool:
             """Checks if row doesn't have any zero values.
 
             Args:
-                row (int): Row number on the grid.
+                row (int): Row number on the grid
 
             Returns:
                 bool: True if row doesn't have zeros in it, else False
@@ -89,7 +90,7 @@ class Grid:
             full of zeros to the beginning of the grid list.
 
             Args:
-                row (int): Row number in the grid.
+                row (int): Row number in the grid
             """
             self.grid.pop(row)
             self.grid.insert(0, [0 for col in range(self.width)])
@@ -116,10 +117,10 @@ class Grid:
         returns the content of the first column on the first row.
 
         Args:
-            index (int): Determines which index to return.
+            index (int): Determines which index to return
 
         Returns:
-            (int/str/list): Grid's content on index.
+            (int/str/list): Grid's content on index
         """
         return self.grid[index]
 
@@ -127,7 +128,7 @@ class Grid:
         """Enables changing grid values without 'grid' prefix.
 
         Args:
-            index (int): Determines which index to change.
-            value (int/str/list): Content to save on index.
+            index (int): Determines which index to change
+            value (int/str/list): Content to save on index
         """
         self.grid[index] = value
