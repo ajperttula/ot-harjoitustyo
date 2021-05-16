@@ -32,7 +32,8 @@ Käynnistettäessa peli avautuu päävalikkoon. Muita valikoita ovat tulosvalikk
   - Kun rivejä on tuhoutunut 15 kertaa, pelin tempo kasvaa (monta riviä kerralla lasketaan yhdeksi tuhoutumiseksi)
   - Peli loppuu, kun uudella palikalla ei ole enää tilaa pudota alaspäin
   #### Pelin loputtua
-  - Jos pelaaja sai pisteitä, nimi ja pisteet tallennetaan tietokantaan 
+  - Jos pelaaja sai pisteitä, nimi ja pisteet tallennetaan tietokantaan
+  - Pelaajalle näytetään game over teksti ja ohjeistus uuden pelin aloituksesta
 
 ### Tulosnäkymässä
 - Pelaaja voi tarkastella huipputuloksia
